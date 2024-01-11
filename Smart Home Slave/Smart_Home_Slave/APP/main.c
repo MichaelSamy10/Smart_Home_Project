@@ -294,6 +294,7 @@ void guestPage()
 				break;
 			
 			case SPI_RESET:
+				reset();
 				RoomsFlag=1;
 				break;
 		} // End switch
