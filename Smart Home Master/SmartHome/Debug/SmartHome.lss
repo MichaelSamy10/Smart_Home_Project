@@ -1,0 +1,3532 @@
+
+SmartHome.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000166c  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         000001ba  00800060  0000166c  00001700  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000022  0080021a  0080021a  000018ba  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000018ba  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000018ec  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000003b0  00000000  00000000  00001928  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00003dd0  00000000  00000000  00001cd8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00001029  00000000  00000000  00005aa8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00002420  00000000  00000000  00006ad1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000998  00000000  00000000  00008ef4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00001147  00000000  00000000  0000988c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000270c  00000000  00000000  0000a9d3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000330  00000000  00000000  0000d0df  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+       4:	0c 94 fd 08 	jmp	0x11fa	; 0x11fa <__vector_1>
+       8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+       c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      18:	0c 94 bd 09 	jmp	0x137a	; 0x137a <__vector_6>
+      1c:	0c 94 c7 09 	jmp	0x138e	; 0x138e <__vector_7>
+      20:	0c 94 08 0a 	jmp	0x1410	; 0x1410 <__vector_8>
+      24:	0c 94 49 0a 	jmp	0x1492	; 0x1492 <__vector_9>
+      28:	0c 94 7c 09 	jmp	0x12f8	; 0x12f8 <__vector_10>
+      2c:	0c 94 3b 09 	jmp	0x1276	; 0x1276 <__vector_11>
+      30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+      50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+      54:	11 24       	eor	r1, r1
+      56:	1f be       	out	0x3f, r1	; 63
+      58:	cf e5       	ldi	r28, 0x5F	; 95
+      5a:	d8 e0       	ldi	r29, 0x08	; 8
+      5c:	de bf       	out	0x3e, r29	; 62
+      5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+      60:	12 e0       	ldi	r17, 0x02	; 2
+      62:	a0 e6       	ldi	r26, 0x60	; 96
+      64:	b0 e0       	ldi	r27, 0x00	; 0
+      66:	ec e6       	ldi	r30, 0x6C	; 108
+      68:	f6 e1       	ldi	r31, 0x16	; 22
+      6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+      6c:	05 90       	lpm	r0, Z+
+      6e:	0d 92       	st	X+, r0
+      70:	aa 31       	cpi	r26, 0x1A	; 26
+      72:	b1 07       	cpc	r27, r17
+      74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+      76:	22 e0       	ldi	r18, 0x02	; 2
+      78:	aa e1       	ldi	r26, 0x1A	; 26
+      7a:	b2 e0       	ldi	r27, 0x02	; 2
+      7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+      7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+      80:	ac 33       	cpi	r26, 0x3C	; 60
+      82:	b2 07       	cpc	r27, r18
+      84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+      86:	0e 94 65 05 	call	0xaca	; 0xaca <main>
+      8a:	0c 94 34 0b 	jmp	0x1668	; 0x1668 <_exit>
+
+0000008e <__bad_interrupt>:
+      8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <firstLoginPage>:
+}
+
+
+/* Function to read address FIRST_LOGIN_ADDRESS -> (100) in EEPROM */	
+void firstLoginPage(void)
+{
+      92:	1f 93       	push	r17
+      94:	cf 93       	push	r28
+      96:	df 93       	push	r29
+      98:	1f 92       	push	r1
+      9a:	cd b7       	in	r28, 0x3d	; 61
+      9c:	de b7       	in	r29, 0x3e	; 62
+	/* 
+	   firstLoginStatus -> status of login first time or not (0xFF,1) 
+	   addresses that password will be saved (0,1,2,3)
+	*/	
+	u8 firstLoginStatus , address=0;
+	passCounter=0;
+      9e:	10 92 1a 02 	sts	0x021A, r1	; 0x80021a <__data_end>
+	EEPROM_voidReadByte(&firstLoginStatus,FIRST_LOGIN_ADDRESS);
+      a2:	64 e6       	ldi	r22, 0x64	; 100
+      a4:	70 e0       	ldi	r23, 0x00	; 0
+      a6:	ce 01       	movw	r24, r28
+      a8:	01 96       	adiw	r24, 0x01	; 1
+      aa:	0e 94 60 07 	call	0xec0	; 0xec0 <EEPROM_voidReadByte>
+	/* Check if content of address 100 in EEPROM = 0xFF then this is first login time and then set password for the first time */
+	if(firstLoginStatus != PASS_SET)
+      ae:	89 81       	ldd	r24, Y+1	; 0x01
+      b0:	81 30       	cpi	r24, 0x01	; 1
+      b2:	09 f4       	brne	.+2      	; 0xb6 <firstLoginPage+0x24>
+      b4:	d8 c0       	rjmp	.+432    	; 0x266 <firstLoginPage+0x1d4>
+	{
+		CLCD_voidSendString("Login for ");
+      b6:	82 e7       	ldi	r24, 0x72	; 114
+      b8:	90 e0       	ldi	r25, 0x00	; 0
+      ba:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+		CLCD_voidSendStringPosition("First Time",1,0);
+      be:	40 e0       	ldi	r20, 0x00	; 0
+      c0:	61 e0       	ldi	r22, 0x01	; 1
+      c2:	8d e7       	ldi	r24, 0x7D	; 125
+      c4:	90 e0       	ldi	r25, 0x00	; 0
+      c6:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+      ca:	2f ef       	ldi	r18, 0xFF	; 255
+      cc:	83 ed       	ldi	r24, 0xD3	; 211
+      ce:	90 e3       	ldi	r25, 0x30	; 48
+      d0:	21 50       	subi	r18, 0x01	; 1
+      d2:	80 40       	sbci	r24, 0x00	; 0
+      d4:	90 40       	sbci	r25, 0x00	; 0
+      d6:	e1 f7       	brne	.-8      	; 0xd0 <firstLoginPage+0x3e>
+      d8:	00 c0       	rjmp	.+0      	; 0xda <firstLoginPage+0x48>
+      da:	00 00       	nop
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+      dc:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+		column=12;
+      e0:	8c e0       	ldi	r24, 0x0C	; 12
+      e2:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <column>
+		CLCD_voidSendString("Set Admin Pass");
+      e6:	88 e8       	ldi	r24, 0x88	; 136
+      e8:	90 e0       	ldi	r25, 0x00	; 0
+      ea:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+		CLCD_voidSendStringPosition("Admin Pass: ",1,0);
+      ee:	40 e0       	ldi	r20, 0x00	; 0
+      f0:	61 e0       	ldi	r22, 0x01	; 1
+      f2:	87 e9       	ldi	r24, 0x97	; 151
+      f4:	90 e0       	ldi	r25, 0x00	; 0
+      f6:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+	/* FIRST TIME LOGIN PAGE */
+	/* 
+	   firstLoginStatus -> status of login first time or not (0xFF,1) 
+	   addresses that password will be saved (0,1,2,3)
+	*/	
+	u8 firstLoginStatus , address=0;
+      fa:	10 e0       	ldi	r17, 0x00	; 0
+		CLCD_voidClearDisplay();
+		column=12;
+		CLCD_voidSendString("Set Admin Pass");
+		CLCD_voidSendStringPosition("Admin Pass: ",1,0);
+		/* This loop will exit after entering 4 numbers as Password is 4 digits only */
+		while(passCounter<PASSWORD_DIGITS){
+      fc:	31 c0       	rjmp	.+98     	; 0x160 <firstLoginPage+0xce>
+			keyPressed = NOT_PRESSED;
+      fe:	8f ef       	ldi	r24, 0xFF	; 255
+     100:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+			while(keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     104:	04 c0       	rjmp	.+8      	; 0x10e <firstLoginPage+0x7c>
+			{
+				keyPressed = KPD_u8GetPressedKey(); //get the user pressed button in keypad and save the value in keyPressed
+     106:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+     10a:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+		CLCD_voidSendString("Set Admin Pass");
+		CLCD_voidSendStringPosition("Admin Pass: ",1,0);
+		/* This loop will exit after entering 4 numbers as Password is 4 digits only */
+		while(passCounter<PASSWORD_DIGITS){
+			keyPressed = NOT_PRESSED;
+			while(keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     10e:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     112:	8f 3f       	cpi	r24, 0xFF	; 255
+     114:	c1 f3       	breq	.-16     	; 0x106 <firstLoginPage+0x74>
+			{
+				keyPressed = KPD_u8GetPressedKey(); //get the user pressed button in keypad and save the value in keyPressed
+			}
+			/* Display keyPressed on LCD and after PASSWORD_HIDE_DELAY display '*' */
+			CLCD_voidSendCharPosition(keyPressed,1,column);
+     116:	40 91 61 00 	lds	r20, 0x0061	; 0x800061 <column>
+     11a:	61 e0       	ldi	r22, 0x01	; 1
+     11c:	0e 94 2a 07 	call	0xe54	; 0xe54 <CLCD_voidSendCharPosition>
+     120:	2f ef       	ldi	r18, 0xFF	; 255
+     122:	82 e5       	ldi	r24, 0x52	; 82
+     124:	97 e0       	ldi	r25, 0x07	; 7
+     126:	21 50       	subi	r18, 0x01	; 1
+     128:	80 40       	sbci	r24, 0x00	; 0
+     12a:	90 40       	sbci	r25, 0x00	; 0
+     12c:	e1 f7       	brne	.-8      	; 0x126 <firstLoginPage+0x94>
+     12e:	00 c0       	rjmp	.+0      	; 0x130 <firstLoginPage+0x9e>
+     130:	00 00       	nop
+			_delay_ms(PASSWORD_HIDE_DELAY);
+			CLCD_voidSendCharPosition('*',1,column);
+     132:	40 91 61 00 	lds	r20, 0x0061	; 0x800061 <column>
+     136:	61 e0       	ldi	r22, 0x01	; 1
+     138:	8a e2       	ldi	r24, 0x2A	; 42
+     13a:	0e 94 2a 07 	call	0xe54	; 0xe54 <CLCD_voidSendCharPosition>
+			column++;
+     13e:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <column>
+     142:	8f 5f       	subi	r24, 0xFF	; 255
+     144:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <column>
+	
+			/* save Admin password in addresses from 0 -> 3 in EEPROM */
+			EEPROM_voidWriteByte(keyPressed,address);
+     148:	61 2f       	mov	r22, r17
+     14a:	70 e0       	ldi	r23, 0x00	; 0
+     14c:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     150:	0e 94 42 07 	call	0xe84	; 0xe84 <EEPROM_voidWriteByte>
+			address++;
+     154:	1f 5f       	subi	r17, 0xFF	; 255
+			passCounter++;
+     156:	80 91 1a 02 	lds	r24, 0x021A	; 0x80021a <__data_end>
+     15a:	8f 5f       	subi	r24, 0xFF	; 255
+     15c:	80 93 1a 02 	sts	0x021A, r24	; 0x80021a <__data_end>
+		CLCD_voidClearDisplay();
+		column=12;
+		CLCD_voidSendString("Set Admin Pass");
+		CLCD_voidSendStringPosition("Admin Pass: ",1,0);
+		/* This loop will exit after entering 4 numbers as Password is 4 digits only */
+		while(passCounter<PASSWORD_DIGITS){
+     160:	80 91 1a 02 	lds	r24, 0x021A	; 0x80021a <__data_end>
+     164:	84 30       	cpi	r24, 0x04	; 4
+     166:	58 f2       	brcs	.-106    	; 0xfe <firstLoginPage+0x6c>
+			EEPROM_voidWriteByte(keyPressed,address);
+			address++;
+			passCounter++;
+		}
+		
+		passCounter=0;	address=4;	column=12;
+     168:	10 92 1a 02 	sts	0x021A, r1	; 0x80021a <__data_end>
+     16c:	8c e0       	ldi	r24, 0x0C	; 12
+     16e:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <column>
+     172:	2f ef       	ldi	r18, 0xFF	; 255
+     174:	83 ed       	ldi	r24, 0xD3	; 211
+     176:	90 e3       	ldi	r25, 0x30	; 48
+     178:	21 50       	subi	r18, 0x01	; 1
+     17a:	80 40       	sbci	r24, 0x00	; 0
+     17c:	90 40       	sbci	r25, 0x00	; 0
+     17e:	e1 f7       	brne	.-8      	; 0x178 <firstLoginPage+0xe6>
+     180:	00 c0       	rjmp	.+0      	; 0x182 <firstLoginPage+0xf0>
+     182:	00 00       	nop
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+     184:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+		CLCD_voidSendString("Password Saved");
+     188:	84 ea       	ldi	r24, 0xA4	; 164
+     18a:	90 e0       	ldi	r25, 0x00	; 0
+     18c:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     190:	2f ef       	ldi	r18, 0xFF	; 255
+     192:	83 ed       	ldi	r24, 0xD3	; 211
+     194:	90 e3       	ldi	r25, 0x30	; 48
+     196:	21 50       	subi	r18, 0x01	; 1
+     198:	80 40       	sbci	r24, 0x00	; 0
+     19a:	90 40       	sbci	r25, 0x00	; 0
+     19c:	e1 f7       	brne	.-8      	; 0x196 <firstLoginPage+0x104>
+     19e:	00 c0       	rjmp	.+0      	; 0x1a0 <firstLoginPage+0x10e>
+     1a0:	00 00       	nop
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+     1a2:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+		CLCD_voidSendString("Set Guest Pass");
+     1a6:	83 eb       	ldi	r24, 0xB3	; 179
+     1a8:	90 e0       	ldi	r25, 0x00	; 0
+     1aa:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+		CLCD_voidSendStringPosition("Guest Pass: ",1,0);
+     1ae:	40 e0       	ldi	r20, 0x00	; 0
+     1b0:	61 e0       	ldi	r22, 0x01	; 1
+     1b2:	82 ec       	ldi	r24, 0xC2	; 194
+     1b4:	90 e0       	ldi	r25, 0x00	; 0
+     1b6:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+			EEPROM_voidWriteByte(keyPressed,address);
+			address++;
+			passCounter++;
+		}
+		
+		passCounter=0;	address=4;	column=12;
+     1ba:	14 e0       	ldi	r17, 0x04	; 4
+		CLCD_voidSendString("Password Saved");
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+		CLCD_voidSendString("Set Guest Pass");
+		CLCD_voidSendStringPosition("Guest Pass: ",1,0);
+		while(passCounter<PASSWORD_DIGITS){
+     1bc:	31 c0       	rjmp	.+98     	; 0x220 <firstLoginPage+0x18e>
+			keyPressed = NOT_PRESSED;
+     1be:	8f ef       	ldi	r24, 0xFF	; 255
+     1c0:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+			while(keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     1c4:	04 c0       	rjmp	.+8      	; 0x1ce <firstLoginPage+0x13c>
+			{
+				keyPressed = KPD_u8GetPressedKey(); //get the user pressed button in keypad and save the value in keyPressed
+     1c6:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+     1ca:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+		CLCD_voidClearDisplay();
+		CLCD_voidSendString("Set Guest Pass");
+		CLCD_voidSendStringPosition("Guest Pass: ",1,0);
+		while(passCounter<PASSWORD_DIGITS){
+			keyPressed = NOT_PRESSED;
+			while(keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     1ce:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     1d2:	8f 3f       	cpi	r24, 0xFF	; 255
+     1d4:	c1 f3       	breq	.-16     	; 0x1c6 <firstLoginPage+0x134>
+			{
+				keyPressed = KPD_u8GetPressedKey(); //get the user pressed button in keypad and save the value in keyPressed
+			}
+			/* Display keyPressed on LCD and after PASSWORD_HIDE_DELAY display '*' */
+			CLCD_voidSendCharPosition(keyPressed,1,column);
+     1d6:	40 91 61 00 	lds	r20, 0x0061	; 0x800061 <column>
+     1da:	61 e0       	ldi	r22, 0x01	; 1
+     1dc:	0e 94 2a 07 	call	0xe54	; 0xe54 <CLCD_voidSendCharPosition>
+     1e0:	2f ef       	ldi	r18, 0xFF	; 255
+     1e2:	82 e5       	ldi	r24, 0x52	; 82
+     1e4:	97 e0       	ldi	r25, 0x07	; 7
+     1e6:	21 50       	subi	r18, 0x01	; 1
+     1e8:	80 40       	sbci	r24, 0x00	; 0
+     1ea:	90 40       	sbci	r25, 0x00	; 0
+     1ec:	e1 f7       	brne	.-8      	; 0x1e6 <firstLoginPage+0x154>
+     1ee:	00 c0       	rjmp	.+0      	; 0x1f0 <firstLoginPage+0x15e>
+     1f0:	00 00       	nop
+			_delay_ms(PASSWORD_HIDE_DELAY);
+			CLCD_voidSendCharPosition('*',1,column);
+     1f2:	40 91 61 00 	lds	r20, 0x0061	; 0x800061 <column>
+     1f6:	61 e0       	ldi	r22, 0x01	; 1
+     1f8:	8a e2       	ldi	r24, 0x2A	; 42
+     1fa:	0e 94 2a 07 	call	0xe54	; 0xe54 <CLCD_voidSendCharPosition>
+			column++;
+     1fe:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <column>
+     202:	8f 5f       	subi	r24, 0xFF	; 255
+     204:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <column>
+			
+			/* save Guest password in addresses from 4 -> 7 in EEPROM */
+			EEPROM_voidWriteByte(keyPressed,address);
+     208:	61 2f       	mov	r22, r17
+     20a:	70 e0       	ldi	r23, 0x00	; 0
+     20c:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     210:	0e 94 42 07 	call	0xe84	; 0xe84 <EEPROM_voidWriteByte>
+			address++;
+     214:	1f 5f       	subi	r17, 0xFF	; 255
+			passCounter++;
+     216:	80 91 1a 02 	lds	r24, 0x021A	; 0x80021a <__data_end>
+     21a:	8f 5f       	subi	r24, 0xFF	; 255
+     21c:	80 93 1a 02 	sts	0x021A, r24	; 0x80021a <__data_end>
+		CLCD_voidSendString("Password Saved");
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+		CLCD_voidSendString("Set Guest Pass");
+		CLCD_voidSendStringPosition("Guest Pass: ",1,0);
+		while(passCounter<PASSWORD_DIGITS){
+     220:	80 91 1a 02 	lds	r24, 0x021A	; 0x80021a <__data_end>
+     224:	84 30       	cpi	r24, 0x04	; 4
+     226:	58 f2       	brcs	.-106    	; 0x1be <firstLoginPage+0x12c>
+     228:	2f ef       	ldi	r18, 0xFF	; 255
+     22a:	83 ed       	ldi	r24, 0xD3	; 211
+     22c:	90 e3       	ldi	r25, 0x30	; 48
+     22e:	21 50       	subi	r18, 0x01	; 1
+     230:	80 40       	sbci	r24, 0x00	; 0
+     232:	90 40       	sbci	r25, 0x00	; 0
+     234:	e1 f7       	brne	.-8      	; 0x22e <firstLoginPage+0x19c>
+     236:	00 c0       	rjmp	.+0      	; 0x238 <firstLoginPage+0x1a6>
+     238:	00 00       	nop
+			EEPROM_voidWriteByte(keyPressed,address);
+			address++;
+			passCounter++;
+		}	
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+     23a:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+		CLCD_voidSendString("Password Saved");
+     23e:	84 ea       	ldi	r24, 0xA4	; 164
+     240:	90 e0       	ldi	r25, 0x00	; 0
+     242:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     246:	2f ef       	ldi	r18, 0xFF	; 255
+     248:	83 ed       	ldi	r24, 0xD3	; 211
+     24a:	90 e3       	ldi	r25, 0x30	; 48
+     24c:	21 50       	subi	r18, 0x01	; 1
+     24e:	80 40       	sbci	r24, 0x00	; 0
+     250:	90 40       	sbci	r25, 0x00	; 0
+     252:	e1 f7       	brne	.-8      	; 0x24c <firstLoginPage+0x1ba>
+     254:	00 c0       	rjmp	.+0      	; 0x256 <firstLoginPage+0x1c4>
+     256:	00 00       	nop
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();		
+     258:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+		
+		/* Write PASS_SET(1) in address 100 in EEPROM to indicate status of password as it is set, then this page is not appeared again*/
+		EEPROM_voidWriteByte(PASS_SET,FIRST_LOGIN_ADDRESS);
+     25c:	64 e6       	ldi	r22, 0x64	; 100
+     25e:	70 e0       	ldi	r23, 0x00	; 0
+     260:	81 e0       	ldi	r24, 0x01	; 1
+     262:	0e 94 42 07 	call	0xe84	; 0xe84 <EEPROM_voidWriteByte>
+
+	}
+	
+}
+     266:	0f 90       	pop	r0
+     268:	df 91       	pop	r29
+     26a:	cf 91       	pop	r28
+     26c:	1f 91       	pop	r17
+     26e:	08 95       	ret
+
+00000270 <passwordCheck>:
+}
+
+
+/* Function to Check password */
+u8 passwordCheck(u8 passArr[PASSWORD_DIGITS],u8 Copy_u8CopmareAddress)
+{
+     270:	cf 92       	push	r12
+     272:	df 92       	push	r13
+     274:	ef 92       	push	r14
+     276:	ff 92       	push	r15
+     278:	0f 93       	push	r16
+     27a:	1f 93       	push	r17
+     27c:	cf 93       	push	r28
+     27e:	df 93       	push	r29
+     280:	1f 92       	push	r1
+     282:	cd b7       	in	r28, 0x3d	; 61
+     284:	de b7       	in	r29, 0x3e	; 62
+     286:	7c 01       	movw	r14, r24
+     288:	d6 2e       	mov	r13, r22
+	u8 loginFlag=WRONG_PASSWORD ,Local_u8CompareAddress;
+	passCounter=0;
+     28a:	10 92 1a 02 	sts	0x021A, r1	; 0x80021a <__data_end>
+
+
+/* Function to Check password */
+u8 passwordCheck(u8 passArr[PASSWORD_DIGITS],u8 Copy_u8CopmareAddress)
+{
+	u8 loginFlag=WRONG_PASSWORD ,Local_u8CompareAddress;
+     28e:	0f 2e       	mov	r0, r31
+     290:	f5 e0       	ldi	r31, 0x05	; 5
+     292:	cf 2e       	mov	r12, r31
+     294:	f0 2d       	mov	r31, r0
+	passCounter=0;
+	while(loginFlag == WRONG_PASSWORD)
+     296:	ed c0       	rjmp	.+474    	; 0x472 <__EEPROM_REGION_LENGTH__+0x72>
+	{
+			CLCD_voidClearDisplay();
+     298:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+			CLCD_voidSendString("Enter Password");
+     29c:	8f ec       	ldi	r24, 0xCF	; 207
+     29e:	90 e0       	ldi	r25, 0x00	; 0
+     2a0:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+			DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN5,DIO_u8LOW);
+     2a4:	40 e0       	ldi	r20, 0x00	; 0
+     2a6:	65 e0       	ldi	r22, 0x05	; 5
+     2a8:	83 e0       	ldi	r24, 0x03	; 3
+     2aa:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+			DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8LOW);
+     2ae:	40 e0       	ldi	r20, 0x00	; 0
+     2b0:	66 e0       	ldi	r22, 0x06	; 6
+     2b2:	83 e0       	ldi	r24, 0x03	; 3
+     2b4:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+			column=5;	//password position
+     2b8:	85 e0       	ldi	r24, 0x05	; 5
+     2ba:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <column>
+			/* Enter password to login */
+			CLCD_voidMoveCursor(1,column);
+     2be:	65 e0       	ldi	r22, 0x05	; 5
+     2c0:	81 e0       	ldi	r24, 0x01	; 1
+     2c2:	0e 94 b7 06 	call	0xd6e	; 0xd6e <CLCD_voidMoveCursor>
+			while(passCounter<PASSWORD_DIGITS){
+     2c6:	32 c0       	rjmp	.+100    	; 0x32c <passwordCheck+0xbc>
+				keyPressed = NOT_PRESSED;
+     2c8:	8f ef       	ldi	r24, 0xFF	; 255
+     2ca:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+				while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     2ce:	04 c0       	rjmp	.+8      	; 0x2d8 <passwordCheck+0x68>
+				{
+					keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+     2d0:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+     2d4:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+			column=5;	//password position
+			/* Enter password to login */
+			CLCD_voidMoveCursor(1,column);
+			while(passCounter<PASSWORD_DIGITS){
+				keyPressed = NOT_PRESSED;
+				while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     2d8:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     2dc:	8f 3f       	cpi	r24, 0xFF	; 255
+     2de:	c1 f3       	breq	.-16     	; 0x2d0 <passwordCheck+0x60>
+				{
+					keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+				}
+				passArr[passCounter]=keyPressed;//add the entered character to the pass array
+     2e0:	90 91 1a 02 	lds	r25, 0x021A	; 0x80021a <__data_end>
+     2e4:	f7 01       	movw	r30, r14
+     2e6:	e9 0f       	add	r30, r25
+     2e8:	f1 1d       	adc	r31, r1
+     2ea:	80 83       	st	Z, r24
+				CLCD_voidSendCharPosition(keyPressed,1,column);
+     2ec:	40 91 61 00 	lds	r20, 0x0061	; 0x800061 <column>
+     2f0:	61 e0       	ldi	r22, 0x01	; 1
+     2f2:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     2f6:	0e 94 2a 07 	call	0xe54	; 0xe54 <CLCD_voidSendCharPosition>
+     2fa:	2f ef       	ldi	r18, 0xFF	; 255
+     2fc:	32 e5       	ldi	r19, 0x52	; 82
+     2fe:	87 e0       	ldi	r24, 0x07	; 7
+     300:	21 50       	subi	r18, 0x01	; 1
+     302:	30 40       	sbci	r19, 0x00	; 0
+     304:	80 40       	sbci	r24, 0x00	; 0
+     306:	e1 f7       	brne	.-8      	; 0x300 <passwordCheck+0x90>
+     308:	00 c0       	rjmp	.+0      	; 0x30a <passwordCheck+0x9a>
+     30a:	00 00       	nop
+				_delay_ms(PASSWORD_HIDE_DELAY);
+				CLCD_voidSendCharPosition('*',1,column);
+     30c:	40 91 61 00 	lds	r20, 0x0061	; 0x800061 <column>
+     310:	61 e0       	ldi	r22, 0x01	; 1
+     312:	8a e2       	ldi	r24, 0x2A	; 42
+     314:	0e 94 2a 07 	call	0xe54	; 0xe54 <CLCD_voidSendCharPosition>
+				column++;
+     318:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <column>
+     31c:	8f 5f       	subi	r24, 0xFF	; 255
+     31e:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <column>
+				passCounter++;
+     322:	80 91 1a 02 	lds	r24, 0x021A	; 0x80021a <__data_end>
+     326:	8f 5f       	subi	r24, 0xFF	; 255
+     328:	80 93 1a 02 	sts	0x021A, r24	; 0x80021a <__data_end>
+			DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN5,DIO_u8LOW);
+			DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8LOW);
+			column=5;	//password position
+			/* Enter password to login */
+			CLCD_voidMoveCursor(1,column);
+			while(passCounter<PASSWORD_DIGITS){
+     32c:	80 91 1a 02 	lds	r24, 0x021A	; 0x80021a <__data_end>
+     330:	84 30       	cpi	r24, 0x04	; 4
+     332:	50 f2       	brcs	.-108    	; 0x2c8 <passwordCheck+0x58>
+				_delay_ms(PASSWORD_HIDE_DELAY);
+				CLCD_voidSendCharPosition('*',1,column);
+				column++;
+				passCounter++;
+			}
+			passCounter = 0;
+     334:	10 92 1a 02 	sts	0x021A, r1	; 0x80021a <__data_end>
+				compareArrIndx -> index of array that holds tha password
+				compareAddress -> address to be compared with array elements
+			*/
+			u8 compareVal,compareArrIndx=0;
+			/* compare with password saved in EEPROM */
+			Local_u8CompareAddress = Copy_u8CopmareAddress;
+     338:	0d 2d       	mov	r16, r13
+			/*
+				compareVal-> value in EEPROM to be compared 
+				compareArrIndx -> index of array that holds tha password
+				compareAddress -> address to be compared with array elements
+			*/
+			u8 compareVal,compareArrIndx=0;
+     33a:	10 e0       	ldi	r17, 0x00	; 0
+			/* compare with password saved in EEPROM */
+			Local_u8CompareAddress = Copy_u8CopmareAddress;
+			while(passCounter<PASSWORD_DIGITS){
+     33c:	18 c0       	rjmp	.+48     	; 0x36e <passwordCheck+0xfe>
+ 				EEPROM_voidReadByte(&compareVal,Local_u8CompareAddress);
+     33e:	60 2f       	mov	r22, r16
+     340:	70 e0       	ldi	r23, 0x00	; 0
+     342:	ce 01       	movw	r24, r28
+     344:	01 96       	adiw	r24, 0x01	; 1
+     346:	0e 94 60 07 	call	0xec0	; 0xec0 <EEPROM_voidReadByte>
+				if(compareVal == passArr[compareArrIndx])
+     34a:	f7 01       	movw	r30, r14
+     34c:	e1 0f       	add	r30, r17
+     34e:	f1 1d       	adc	r31, r1
+     350:	90 81       	ld	r25, Z
+     352:	89 81       	ldd	r24, Y+1	; 0x01
+     354:	98 13       	cpse	r25, r24
+     356:	06 c0       	rjmp	.+12     	; 0x364 <passwordCheck+0xf4>
+					passCounter++;
+     358:	80 91 1a 02 	lds	r24, 0x021A	; 0x80021a <__data_end>
+     35c:	8f 5f       	subi	r24, 0xFF	; 255
+     35e:	80 93 1a 02 	sts	0x021A, r24	; 0x80021a <__data_end>
+     362:	03 c0       	rjmp	.+6      	; 0x36a <passwordCheck+0xfa>
+				else{
+					passCounter = WRONG_PASSWORD;
+     364:	85 e0       	ldi	r24, 0x05	; 5
+     366:	80 93 1a 02 	sts	0x021A, r24	; 0x80021a <__data_end>
+				}
+				compareArrIndx++; Local_u8CompareAddress++;
+     36a:	1f 5f       	subi	r17, 0xFF	; 255
+     36c:	0f 5f       	subi	r16, 0xFF	; 255
+				compareAddress -> address to be compared with array elements
+			*/
+			u8 compareVal,compareArrIndx=0;
+			/* compare with password saved in EEPROM */
+			Local_u8CompareAddress = Copy_u8CopmareAddress;
+			while(passCounter<PASSWORD_DIGITS){
+     36e:	80 91 1a 02 	lds	r24, 0x021A	; 0x80021a <__data_end>
+     372:	84 30       	cpi	r24, 0x04	; 4
+     374:	20 f3       	brcs	.-56     	; 0x33e <passwordCheck+0xce>
+					passCounter = WRONG_PASSWORD;
+				}
+				compareArrIndx++; Local_u8CompareAddress++;
+			}
+			/* check if the loop exit for entering right password (passCounter = RIGHT_PASSWORD) or wrong password (passCounter = WRONG_PASSWORD) */
+			if(passCounter == RIGHT_PASSWORD){
+     376:	84 30       	cpi	r24, 0x04	; 4
+     378:	31 f5       	brne	.+76     	; 0x3c6 <passwordCheck+0x156>
+     37a:	9f ef       	ldi	r25, 0xFF	; 255
+     37c:	23 ed       	ldi	r18, 0xD3	; 211
+     37e:	30 e3       	ldi	r19, 0x30	; 48
+     380:	91 50       	subi	r25, 0x01	; 1
+     382:	20 40       	sbci	r18, 0x00	; 0
+     384:	30 40       	sbci	r19, 0x00	; 0
+     386:	e1 f7       	brne	.-8      	; 0x380 <passwordCheck+0x110>
+     388:	00 c0       	rjmp	.+0      	; 0x38a <passwordCheck+0x11a>
+     38a:	00 00       	nop
+				_delay_ms(LCD_CLR_DELAY);
+				CLCD_voidClearDisplay();
+     38c:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+				CLCD_voidSendString("Right Password");
+     390:	8e ed       	ldi	r24, 0xDE	; 222
+     392:	90 e0       	ldi	r25, 0x00	; 0
+     394:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+				DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8HIGH);	//TurnOn Green Led
+     398:	41 e0       	ldi	r20, 0x01	; 1
+     39a:	66 e0       	ldi	r22, 0x06	; 6
+     39c:	83 e0       	ldi	r24, 0x03	; 3
+     39e:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     3a2:	8f ef       	ldi	r24, 0xFF	; 255
+     3a4:	93 ed       	ldi	r25, 0xD3	; 211
+     3a6:	20 e3       	ldi	r18, 0x30	; 48
+     3a8:	81 50       	subi	r24, 0x01	; 1
+     3aa:	90 40       	sbci	r25, 0x00	; 0
+     3ac:	20 40       	sbci	r18, 0x00	; 0
+     3ae:	e1 f7       	brne	.-8      	; 0x3a8 <passwordCheck+0x138>
+     3b0:	00 c0       	rjmp	.+0      	; 0x3b2 <passwordCheck+0x142>
+     3b2:	00 00       	nop
+				_delay_ms(LCD_CLR_DELAY);
+				CLCD_voidClearDisplay();
+     3b4:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+				/* Change password flag to exit from login page and go to Rooms page*/
+				loginFlag = RIGHT_PASSWORD;
+				//DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN0,DIO_u8LOW);
+				SPI_u8Transreceive(RIGHT_PASSWORD);
+     3b8:	84 e0       	ldi	r24, 0x04	; 4
+     3ba:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+				CLCD_voidSendString("Right Password");
+				DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8HIGH);	//TurnOn Green Led
+				_delay_ms(LCD_CLR_DELAY);
+				CLCD_voidClearDisplay();
+				/* Change password flag to exit from login page and go to Rooms page*/
+				loginFlag = RIGHT_PASSWORD;
+     3be:	68 94       	set
+     3c0:	cc 24       	eor	r12, r12
+     3c2:	c2 f8       	bld	r12, 2
+     3c4:	56 c0       	rjmp	.+172    	; 0x472 <__EEPROM_REGION_LENGTH__+0x72>
+				//DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN0,DIO_u8LOW);
+				SPI_u8Transreceive(RIGHT_PASSWORD);
+			}
+			else if(passCounter == WRONG_PASSWORD)
+     3c6:	85 30       	cpi	r24, 0x05	; 5
+     3c8:	09 f0       	breq	.+2      	; 0x3cc <passwordCheck+0x15c>
+     3ca:	53 c0       	rjmp	.+166    	; 0x472 <__EEPROM_REGION_LENGTH__+0x72>
+     3cc:	3f ef       	ldi	r19, 0xFF	; 255
+     3ce:	83 ed       	ldi	r24, 0xD3	; 211
+     3d0:	90 e3       	ldi	r25, 0x30	; 48
+     3d2:	31 50       	subi	r19, 0x01	; 1
+     3d4:	80 40       	sbci	r24, 0x00	; 0
+     3d6:	90 40       	sbci	r25, 0x00	; 0
+     3d8:	e1 f7       	brne	.-8      	; 0x3d2 <passwordCheck+0x162>
+     3da:	00 c0       	rjmp	.+0      	; 0x3dc <passwordCheck+0x16c>
+     3dc:	00 00       	nop
+			{
+				static s8 passTries = PASSWORD_TRIES; // Number of tries is 3
+				_delay_ms(LCD_CLR_DELAY);
+				CLCD_voidClearDisplay();
+     3de:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+				CLCD_voidSendString("Wrong Password");
+     3e2:	8d ee       	ldi	r24, 0xED	; 237
+     3e4:	90 e0       	ldi	r25, 0x00	; 0
+     3e6:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+				passTries--;
+     3ea:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+     3ee:	81 50       	subi	r24, 0x01	; 1
+     3f0:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+				SPI_u8Transreceive(WRONG_PASSWORD);	// Send WRONG_PASSWORD to turn on buzzer
+     3f4:	85 e0       	ldi	r24, 0x05	; 5
+     3f6:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+				CLCD_voidMoveCursor(1,0);
+     3fa:	60 e0       	ldi	r22, 0x00	; 0
+     3fc:	81 e0       	ldi	r24, 0x01	; 1
+     3fe:	0e 94 b7 06 	call	0xd6e	; 0xd6e <CLCD_voidMoveCursor>
+				CLCD_voidSendString("Tries Left: ");	// display Number of Tries left for the user to enter password
+     402:	8c ef       	ldi	r24, 0xFC	; 252
+     404:	90 e0       	ldi	r25, 0x00	; 0
+     406:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+				CLCD_voidSendNum(passTries);	
+     40a:	60 91 60 00 	lds	r22, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+     40e:	06 2e       	mov	r0, r22
+     410:	00 0c       	add	r0, r0
+     412:	77 0b       	sbc	r23, r23
+     414:	88 0b       	sbc	r24, r24
+     416:	99 0b       	sbc	r25, r25
+     418:	0e 94 c0 06 	call	0xd80	; 0xd80 <CLCD_voidSendNum>
+     41c:	2f ef       	ldi	r18, 0xFF	; 255
+     41e:	33 ed       	ldi	r19, 0xD3	; 211
+     420:	80 e3       	ldi	r24, 0x30	; 48
+     422:	21 50       	subi	r18, 0x01	; 1
+     424:	30 40       	sbci	r19, 0x00	; 0
+     426:	80 40       	sbci	r24, 0x00	; 0
+     428:	e1 f7       	brne	.-8      	; 0x422 <__EEPROM_REGION_LENGTH__+0x22>
+     42a:	00 c0       	rjmp	.+0      	; 0x42c <__EEPROM_REGION_LENGTH__+0x2c>
+     42c:	00 00       	nop
+				_delay_ms(LCD_CLR_DELAY);
+				loginFlag = WRONG_PASSWORD;	passCounter = 0;
+     42e:	10 92 1a 02 	sts	0x021A, r1	; 0x80021a <__data_end>
+				/* No tries left then the user will be blocked for 20 Sec */
+				if(passTries == 0){
+     432:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+     436:	81 11       	cpse	r24, r1
+     438:	1c c0       	rjmp	.+56     	; 0x472 <__EEPROM_REGION_LENGTH__+0x72>
+					DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN5,DIO_u8HIGH);	// TurnOn Red led
+     43a:	41 e0       	ldi	r20, 0x01	; 1
+     43c:	65 e0       	ldi	r22, 0x05	; 5
+     43e:	83 e0       	ldi	r24, 0x03	; 3
+     440:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+					CLCD_voidClearDisplay();
+     444:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					CLCD_voidSendString("Block For 20 Second");
+     448:	89 e0       	ldi	r24, 0x09	; 9
+     44a:	91 e0       	ldi	r25, 0x01	; 1
+     44c:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     450:	9a ea       	ldi	r25, 0xAA	; 170
+     452:	26 ee       	ldi	r18, 0xE6	; 230
+     454:	36 e9       	ldi	r19, 0x96	; 150
+     456:	81 e0       	ldi	r24, 0x01	; 1
+     458:	91 50       	subi	r25, 0x01	; 1
+     45a:	20 40       	sbci	r18, 0x00	; 0
+     45c:	30 40       	sbci	r19, 0x00	; 0
+     45e:	80 40       	sbci	r24, 0x00	; 0
+     460:	d9 f7       	brne	.-10     	; 0x458 <__EEPROM_REGION_LENGTH__+0x58>
+     462:	00 00       	nop
+					/* delay for 20 sec to Block the user */
+					_delay_ms(USER_BLOCK_DELAY);
+					CLCD_voidClearDisplay();
+     464:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					/* Then return to enter password another time */
+					loginFlag = WRONG_PASSWORD;	passCounter = 0; passTries=PASSWORD_TRIES;
+     468:	10 92 1a 02 	sts	0x021A, r1	; 0x80021a <__data_end>
+     46c:	83 e0       	ldi	r24, 0x03	; 3
+     46e:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+/* Function to Check password */
+u8 passwordCheck(u8 passArr[PASSWORD_DIGITS],u8 Copy_u8CopmareAddress)
+{
+	u8 loginFlag=WRONG_PASSWORD ,Local_u8CompareAddress;
+	passCounter=0;
+	while(loginFlag == WRONG_PASSWORD)
+     472:	95 e0       	ldi	r25, 0x05	; 5
+     474:	c9 16       	cp	r12, r25
+     476:	09 f4       	brne	.+2      	; 0x47a <__EEPROM_REGION_LENGTH__+0x7a>
+     478:	0f cf       	rjmp	.-482    	; 0x298 <passwordCheck+0x28>
+				}
+			}			
+		}	// End LOGIN PAGE		
+
+	return loginFlag;
+}
+     47a:	8c 2d       	mov	r24, r12
+     47c:	0f 90       	pop	r0
+     47e:	df 91       	pop	r29
+     480:	cf 91       	pop	r28
+     482:	1f 91       	pop	r17
+     484:	0f 91       	pop	r16
+     486:	ff 90       	pop	r15
+     488:	ef 90       	pop	r14
+     48a:	df 90       	pop	r13
+     48c:	cf 90       	pop	r12
+     48e:	08 95       	ret
+
+00000490 <loginMode>:
+}
+
+
+/* return the login page (admin/guest)*/
+u8 loginMode(void)
+{		
+     490:	0f 93       	push	r16
+     492:	1f 93       	push	r17
+     494:	cf 93       	push	r28
+     496:	df 93       	push	r29
+     498:	cd b7       	in	r28, 0x3d	; 61
+     49a:	de b7       	in	r29, 0x3e	; 62
+     49c:	28 97       	sbiw	r28, 0x08	; 8
+     49e:	0f b6       	in	r0, 0x3f	; 63
+     4a0:	f8 94       	cli
+     4a2:	de bf       	out	0x3e, r29	; 62
+     4a4:	0f be       	out	0x3f, r0	; 63
+     4a6:	cd bf       	out	0x3d, r28	; 61
+	/* 
+		AdminPassArr[4] -> array to add password entered by the user then compare with Admin password saved in EEPROM
+		GuestPassArr[4] -> array to add password entered by the user then compare with Guest password saved in EEPROM
+		loginFlag -> status of entered password 
+	*/	
+	u8 AdminPassArr[PASSWORD_DIGITS],GuestPassArr[PASSWORD_DIGITS],Local_u8LoginPageMode,loginFlag=WRONG_PASSWORD;
+     4a8:	15 e0       	ldi	r17, 0x05	; 5
+	/* LOGIN PAGE */
+	while(loginFlag == WRONG_PASSWORD){
+     4aa:	3e c0       	rjmp	.+124    	; 0x528 <loginMode+0x98>
+		/* MODE SELECTION */
+		CLCD_voidClearDisplay();
+     4ac:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+		CLCD_voidSendString("Select Mode :");
+     4b0:	8d e1       	ldi	r24, 0x1D	; 29
+     4b2:	91 e0       	ldi	r25, 0x01	; 1
+     4b4:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+		CLCD_voidSendStringPosition("0-Admin 1-Guest",1,0);
+     4b8:	40 e0       	ldi	r20, 0x00	; 0
+     4ba:	61 e0       	ldi	r22, 0x01	; 1
+     4bc:	8b e2       	ldi	r24, 0x2B	; 43
+     4be:	91 e0       	ldi	r25, 0x01	; 1
+     4c0:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+		keyPressed = NOT_PRESSED;
+     4c4:	8f ef       	ldi	r24, 0xFF	; 255
+     4c6:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+		while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     4ca:	04 c0       	rjmp	.+8      	; 0x4d4 <loginMode+0x44>
+		{
+			keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+     4cc:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+     4d0:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+		/* MODE SELECTION */
+		CLCD_voidClearDisplay();
+		CLCD_voidSendString("Select Mode :");
+		CLCD_voidSendStringPosition("0-Admin 1-Guest",1,0);
+		keyPressed = NOT_PRESSED;
+		while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     4d4:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     4d8:	8f 3f       	cpi	r24, 0xFF	; 255
+     4da:	c1 f3       	breq	.-16     	; 0x4cc <loginMode+0x3c>
+		{
+			keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+		}
+		
+		switch(keyPressed)
+     4dc:	80 33       	cpi	r24, 0x30	; 48
+     4de:	19 f0       	breq	.+6      	; 0x4e6 <loginMode+0x56>
+     4e0:	81 33       	cpi	r24, 0x31	; 49
+     4e2:	49 f0       	breq	.+18     	; 0x4f6 <loginMode+0x66>
+     4e4:	10 c0       	rjmp	.+32     	; 0x506 <loginMode+0x76>
+		{
+			case '0': //Admin
+				/* Check for Admin password to login */
+				loginFlag = passwordCheck(AdminPassArr,0);
+     4e6:	60 e0       	ldi	r22, 0x00	; 0
+     4e8:	ce 01       	movw	r24, r28
+     4ea:	01 96       	adiw	r24, 0x01	; 1
+     4ec:	0e 94 38 01 	call	0x270	; 0x270 <passwordCheck>
+     4f0:	18 2f       	mov	r17, r24
+				Local_u8LoginPageMode = ADMIN_LOGIN_PAGE;
+     4f2:	00 e0       	ldi	r16, 0x00	; 0
+				break;
+     4f4:	19 c0       	rjmp	.+50     	; 0x528 <loginMode+0x98>
+			case '1': //Guest
+				loginFlag = passwordCheck(GuestPassArr,4);
+     4f6:	64 e0       	ldi	r22, 0x04	; 4
+     4f8:	ce 01       	movw	r24, r28
+     4fa:	05 96       	adiw	r24, 0x05	; 5
+     4fc:	0e 94 38 01 	call	0x270	; 0x270 <passwordCheck>
+     500:	18 2f       	mov	r17, r24
+				Local_u8LoginPageMode = GUEST_LOGIN_PAGE;
+     502:	01 e0       	ldi	r16, 0x01	; 1
+				break;	
+     504:	11 c0       	rjmp	.+34     	; 0x528 <loginMode+0x98>
+			default:	// if user press any other key
+				CLCD_voidClearDisplay();
+     506:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+				CLCD_voidSendString("Wrong Choice.");
+     50a:	8b e3       	ldi	r24, 0x3B	; 59
+     50c:	91 e0       	ldi	r25, 0x01	; 1
+     50e:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     512:	2f ef       	ldi	r18, 0xFF	; 255
+     514:	83 ed       	ldi	r24, 0xD3	; 211
+     516:	90 e3       	ldi	r25, 0x30	; 48
+     518:	21 50       	subi	r18, 0x01	; 1
+     51a:	80 40       	sbci	r24, 0x00	; 0
+     51c:	90 40       	sbci	r25, 0x00	; 0
+     51e:	e1 f7       	brne	.-8      	; 0x518 <loginMode+0x88>
+     520:	00 c0       	rjmp	.+0      	; 0x522 <loginMode+0x92>
+     522:	00 00       	nop
+				_delay_ms(LCD_CLR_DELAY);
+				CLCD_voidClearDisplay();
+     524:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+		GuestPassArr[4] -> array to add password entered by the user then compare with Guest password saved in EEPROM
+		loginFlag -> status of entered password 
+	*/	
+	u8 AdminPassArr[PASSWORD_DIGITS],GuestPassArr[PASSWORD_DIGITS],Local_u8LoginPageMode,loginFlag=WRONG_PASSWORD;
+	/* LOGIN PAGE */
+	while(loginFlag == WRONG_PASSWORD){
+     528:	15 30       	cpi	r17, 0x05	; 5
+     52a:	09 f4       	brne	.+2      	; 0x52e <loginMode+0x9e>
+     52c:	bf cf       	rjmp	.-130    	; 0x4ac <loginMode+0x1c>
+				CLCD_voidClearDisplay();
+				break;	
+		}
+	}
+	return Local_u8LoginPageMode;
+}
+     52e:	80 2f       	mov	r24, r16
+     530:	28 96       	adiw	r28, 0x08	; 8
+     532:	0f b6       	in	r0, 0x3f	; 63
+     534:	f8 94       	cli
+     536:	de bf       	out	0x3e, r29	; 62
+     538:	0f be       	out	0x3f, r0	; 63
+     53a:	cd bf       	out	0x3d, r28	; 61
+     53c:	df 91       	pop	r29
+     53e:	cf 91       	pop	r28
+     540:	1f 91       	pop	r17
+     542:	0f 91       	pop	r16
+     544:	08 95       	ret
+
+00000546 <room_control>:
+}
+
+
+/* Function to control every Room */
+void room_control(u8 *roomFlag,u8 Copy_u8RoomAddress)
+{
+     546:	cf 92       	push	r12
+     548:	df 92       	push	r13
+     54a:	ef 92       	push	r14
+     54c:	ff 92       	push	r15
+     54e:	1f 93       	push	r17
+     550:	cf 93       	push	r28
+     552:	df 93       	push	r29
+     554:	1f 92       	push	r1
+     556:	cd b7       	in	r28, 0x3d	; 61
+     558:	de b7       	in	r29, 0x3e	; 62
+     55a:	6c 01       	movw	r12, r24
+     55c:	16 2f       	mov	r17, r22
+	u8 keyPressed;
+	/* Read Status of the room from its address in EEPROM */
+	u8 Local_u8RoomStatus;
+	EEPROM_voidReadByte(&Local_u8RoomStatus,Copy_u8RoomAddress);
+     55e:	e6 2e       	mov	r14, r22
+     560:	f1 2c       	mov	r15, r1
+     562:	b7 01       	movw	r22, r14
+     564:	ce 01       	movw	r24, r28
+     566:	01 96       	adiw	r24, 0x01	; 1
+     568:	0e 94 60 07 	call	0xec0	; 0xec0 <EEPROM_voidReadByte>
+	switch(Copy_u8RoomAddress)
+     56c:	19 3c       	cpi	r17, 0xC9	; 201
+     56e:	81 f0       	breq	.+32     	; 0x590 <room_control+0x4a>
+     570:	18 f4       	brcc	.+6      	; 0x578 <room_control+0x32>
+     572:	18 3c       	cpi	r17, 0xC8	; 200
+     574:	31 f0       	breq	.+12     	; 0x582 <room_control+0x3c>
+     576:	20 c0       	rjmp	.+64     	; 0x5b8 <room_control+0x72>
+     578:	1a 3c       	cpi	r17, 0xCA	; 202
+     57a:	89 f0       	breq	.+34     	; 0x59e <room_control+0x58>
+     57c:	1b 3c       	cpi	r17, 0xCB	; 203
+     57e:	b1 f0       	breq	.+44     	; 0x5ac <room_control+0x66>
+     580:	1b c0       	rjmp	.+54     	; 0x5b8 <room_control+0x72>
+	{
+		case ROOM1_ADDRESS: CLCD_voidClearDisplay(); CLCD_voidSendString("Room1 S:"); break;
+     582:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+     586:	89 e4       	ldi	r24, 0x49	; 73
+     588:	91 e0       	ldi	r25, 0x01	; 1
+     58a:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     58e:	14 c0       	rjmp	.+40     	; 0x5b8 <room_control+0x72>
+		case ROOM2_ADDRESS: CLCD_voidClearDisplay(); CLCD_voidSendString("Room2 S:"); break;
+     590:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+     594:	82 e5       	ldi	r24, 0x52	; 82
+     596:	91 e0       	ldi	r25, 0x01	; 1
+     598:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     59c:	0d c0       	rjmp	.+26     	; 0x5b8 <room_control+0x72>
+		case ROOM3_ADDRESS: CLCD_voidClearDisplay(); CLCD_voidSendString("Room3 S:"); break;
+     59e:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+     5a2:	8b e5       	ldi	r24, 0x5B	; 91
+     5a4:	91 e0       	ldi	r25, 0x01	; 1
+     5a6:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     5aa:	06 c0       	rjmp	.+12     	; 0x5b8 <room_control+0x72>
+		case ROOM4_ADDRESS: CLCD_voidClearDisplay(); CLCD_voidSendString("Room4 S:"); break;
+     5ac:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+     5b0:	84 e6       	ldi	r24, 0x64	; 100
+     5b2:	91 e0       	ldi	r25, 0x01	; 1
+     5b4:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+	}
+	/* in case of 0 -> S: OFF , in case of 1 -> S:ON*/
+	if(Local_u8RoomStatus == SWITCH_OFF || Local_u8RoomStatus == EEPROM_DEFAULT_ADDRESS)
+     5b8:	89 81       	ldd	r24, Y+1	; 0x01
+     5ba:	9f ef       	ldi	r25, 0xFF	; 255
+     5bc:	98 0f       	add	r25, r24
+     5be:	9e 3f       	cpi	r25, 0xFE	; 254
+     5c0:	28 f0       	brcs	.+10     	; 0x5cc <room_control+0x86>
+	{
+		CLCD_voidSendString("OFF");
+     5c2:	8b e9       	ldi	r24, 0x9B	; 155
+     5c4:	91 e0       	ldi	r25, 0x01	; 1
+     5c6:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     5ca:	06 c0       	rjmp	.+12     	; 0x5d8 <room_control+0x92>
+	}
+	else if(Local_u8RoomStatus == SWITCH_ON)
+     5cc:	81 30       	cpi	r24, 0x01	; 1
+     5ce:	21 f4       	brne	.+8      	; 0x5d8 <room_control+0x92>
+	{
+		CLCD_voidSendString("ON");
+     5d0:	8d e6       	ldi	r24, 0x6D	; 109
+     5d2:	91 e0       	ldi	r25, 0x01	; 1
+     5d4:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+	}
+	CLCD_voidSendStringPosition("1-ON 2-OFF 0-RET",1,0);
+     5d8:	40 e0       	ldi	r20, 0x00	; 0
+     5da:	61 e0       	ldi	r22, 0x01	; 1
+     5dc:	80 e7       	ldi	r24, 0x70	; 112
+     5de:	91 e0       	ldi	r25, 0x01	; 1
+     5e0:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+	keyPressed = NOT_PRESSED;
+     5e4:	8f ef       	ldi	r24, 0xFF	; 255
+	while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     5e6:	02 c0       	rjmp	.+4      	; 0x5ec <room_control+0xa6>
+	{
+		keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+     5e8:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+	{
+		CLCD_voidSendString("ON");
+	}
+	CLCD_voidSendStringPosition("1-ON 2-OFF 0-RET",1,0);
+	keyPressed = NOT_PRESSED;
+	while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     5ec:	8f 3f       	cpi	r24, 0xFF	; 255
+     5ee:	e1 f3       	breq	.-8      	; 0x5e8 <room_control+0xa2>
+	{
+		keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+	}
+	/* Choose ON(1) or OFF(2) or Return to Rooms menu(0)*/
+	switch(keyPressed)
+     5f0:	81 33       	cpi	r24, 0x31	; 49
+     5f2:	29 f0       	breq	.+10     	; 0x5fe <room_control+0xb8>
+     5f4:	82 33       	cpi	r24, 0x32	; 50
+     5f6:	69 f0       	breq	.+26     	; 0x612 <room_control+0xcc>
+     5f8:	80 33       	cpi	r24, 0x30	; 48
+     5fa:	e9 f4       	brne	.+58     	; 0x636 <room_control+0xf0>
+     5fc:	15 c0       	rjmp	.+42     	; 0x628 <room_control+0xe2>
+	{
+		case '1':	// Switch_ON
+			EEPROM_voidWriteByte(SWITCH_ON,Copy_u8RoomAddress);	// Write status 1 in Room address in EEPROM
+     5fe:	b7 01       	movw	r22, r14
+     600:	81 e0       	ldi	r24, 0x01	; 1
+     602:	0e 94 42 07 	call	0xe84	; 0xe84 <EEPROM_voidWriteByte>
+			*roomFlag = 1;
+     606:	81 e0       	ldi	r24, 0x01	; 1
+     608:	f6 01       	movw	r30, r12
+     60a:	80 83       	st	Z, r24
+			//DIO_u8SetPinValue(Copy_u8RoomPort,Copy_u8RoomPin,DIO_u8HIGH);	
+			SPI_u8Transreceive(SWITCH_ON);
+     60c:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+			break;
+     610:	21 c0       	rjmp	.+66     	; 0x654 <room_control+0x10e>
+		case '2':	// Switch_OFF
+			EEPROM_voidWriteByte(SWITCH_OFF,Copy_u8RoomAddress); // Write status 0 in Room address in EEPROM
+     612:	b7 01       	movw	r22, r14
+     614:	80 e0       	ldi	r24, 0x00	; 0
+     616:	0e 94 42 07 	call	0xe84	; 0xe84 <EEPROM_voidWriteByte>
+			*roomFlag = 1;
+     61a:	81 e0       	ldi	r24, 0x01	; 1
+     61c:	f6 01       	movw	r30, r12
+     61e:	80 83       	st	Z, r24
+			//DIO_u8SetPinValue(Copy_u8RoomPort,Copy_u8RoomPin,DIO_u8LOW);
+			SPI_u8Transreceive(SWITCH_OFF);
+     620:	80 e0       	ldi	r24, 0x00	; 0
+     622:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+			break;
+     626:	16 c0       	rjmp	.+44     	; 0x654 <room_control+0x10e>
+		case '0':	// Return to Rooms Page
+			SPI_u8Transreceive(RETURN);
+     628:	83 e0       	ldi	r24, 0x03	; 3
+     62a:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+			*roomFlag = 1;
+     62e:	81 e0       	ldi	r24, 0x01	; 1
+     630:	f6 01       	movw	r30, r12
+     632:	80 83       	st	Z, r24
+			break;
+     634:	0f c0       	rjmp	.+30     	; 0x654 <room_control+0x10e>
+		default:	// if user press any other key
+			CLCD_voidClearDisplay();
+     636:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+			CLCD_voidSendString("Wrong Choice.");
+     63a:	8b e3       	ldi	r24, 0x3B	; 59
+     63c:	91 e0       	ldi	r25, 0x01	; 1
+     63e:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     642:	ff ef       	ldi	r31, 0xFF	; 255
+     644:	23 ed       	ldi	r18, 0xD3	; 211
+     646:	80 e3       	ldi	r24, 0x30	; 48
+     648:	f1 50       	subi	r31, 0x01	; 1
+     64a:	20 40       	sbci	r18, 0x00	; 0
+     64c:	80 40       	sbci	r24, 0x00	; 0
+     64e:	e1 f7       	brne	.-8      	; 0x648 <room_control+0x102>
+     650:	00 c0       	rjmp	.+0      	; 0x652 <room_control+0x10c>
+     652:	00 00       	nop
+			_delay_ms(LCD_CLR_DELAY);
+			break;
+	}
+}
+     654:	0f 90       	pop	r0
+     656:	df 91       	pop	r29
+     658:	cf 91       	pop	r28
+     65a:	1f 91       	pop	r17
+     65c:	ff 90       	pop	r15
+     65e:	ef 90       	pop	r14
+     660:	df 90       	pop	r13
+     662:	cf 90       	pop	r12
+     664:	08 95       	ret
+
+00000666 <fan_control>:
+
+
+/* Function to control Fan using Potentiometer*/
+void fan_control(u8 *fanFlag)
+{
+     666:	0f 93       	push	r16
+     668:	1f 93       	push	r17
+     66a:	cf 93       	push	r28
+     66c:	df 93       	push	r29
+     66e:	1f 92       	push	r1
+     670:	cd b7       	in	r28, 0x3d	; 61
+     672:	de b7       	in	r29, 0x3e	; 62
+     674:	8c 01       	movw	r16, r24
+	u16 Local_u16FanSpeed;
+	u8 Local_u8FanStatus;
+	/* Read Status of the Fan from its address (FAN_ADDRESS) in EEPROM */
+	EEPROM_voidReadByte(&Local_u8FanStatus,FAN_ADDRESS);
+     676:	6c ec       	ldi	r22, 0xCC	; 204
+     678:	70 e0       	ldi	r23, 0x00	; 0
+     67a:	ce 01       	movw	r24, r28
+     67c:	01 96       	adiw	r24, 0x01	; 1
+     67e:	0e 94 60 07 	call	0xec0	; 0xec0 <EEPROM_voidReadByte>
+	
+	CLCD_voidClearDisplay();
+     682:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+	
+	/* in case of 0 -> S: OFF , in case of 1 -> S:ON*/
+	CLCD_voidSendString("Fan S:");
+     686:	81 e8       	ldi	r24, 0x81	; 129
+     688:	91 e0       	ldi	r25, 0x01	; 1
+     68a:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+	if(Local_u8FanStatus == SWITCH_OFF || Local_u8FanStatus == EEPROM_DEFAULT_ADDRESS)
+     68e:	89 81       	ldd	r24, Y+1	; 0x01
+     690:	9f ef       	ldi	r25, 0xFF	; 255
+     692:	98 0f       	add	r25, r24
+     694:	9e 3f       	cpi	r25, 0xFE	; 254
+     696:	28 f0       	brcs	.+10     	; 0x6a2 <fan_control+0x3c>
+	{
+		CLCD_voidSendString("OFF");
+     698:	8b e9       	ldi	r24, 0x9B	; 155
+     69a:	91 e0       	ldi	r25, 0x01	; 1
+     69c:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     6a0:	06 c0       	rjmp	.+12     	; 0x6ae <fan_control+0x48>
+	}
+	else if(Local_u8FanStatus == SWITCH_ON)
+     6a2:	81 30       	cpi	r24, 0x01	; 1
+     6a4:	21 f4       	brne	.+8      	; 0x6ae <fan_control+0x48>
+	{
+		CLCD_voidSendString("ON");
+     6a6:	8d e6       	ldi	r24, 0x6D	; 109
+     6a8:	91 e0       	ldi	r25, 0x01	; 1
+     6aa:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+	}
+	
+	CLCD_voidSendStringPosition("0-RET ",0,11);
+     6ae:	4b e0       	ldi	r20, 0x0B	; 11
+     6b0:	60 e0       	ldi	r22, 0x00	; 0
+     6b2:	88 e8       	ldi	r24, 0x88	; 136
+     6b4:	91 e0       	ldi	r25, 0x01	; 1
+     6b6:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+	CLCD_voidSendStringPosition("1-CONTROL 2-OFF",1,0);
+     6ba:	40 e0       	ldi	r20, 0x00	; 0
+     6bc:	61 e0       	ldi	r22, 0x01	; 1
+     6be:	8f e8       	ldi	r24, 0x8F	; 143
+     6c0:	91 e0       	ldi	r25, 0x01	; 1
+     6c2:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+	keyPressed = NOT_PRESSED;
+     6c6:	8f ef       	ldi	r24, 0xFF	; 255
+     6c8:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+	while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     6cc:	04 c0       	rjmp	.+8      	; 0x6d6 <fan_control+0x70>
+	{
+		keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+     6ce:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+     6d2:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+	}
+	
+	CLCD_voidSendStringPosition("0-RET ",0,11);
+	CLCD_voidSendStringPosition("1-CONTROL 2-OFF",1,0);
+	keyPressed = NOT_PRESSED;
+	while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     6d6:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     6da:	8f 3f       	cpi	r24, 0xFF	; 255
+     6dc:	c1 f3       	breq	.-16     	; 0x6ce <fan_control+0x68>
+	{
+		keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+	}
+	/* Choose CONTROL(1) or OFF(2) or Return(0)*/
+	switch(keyPressed)
+     6de:	81 33       	cpi	r24, 0x31	; 49
+     6e0:	29 f0       	breq	.+10     	; 0x6ec <fan_control+0x86>
+     6e2:	82 33       	cpi	r24, 0x32	; 50
+     6e4:	61 f0       	breq	.+24     	; 0x6fe <fan_control+0x98>
+     6e6:	80 33       	cpi	r24, 0x30	; 48
+     6e8:	e9 f4       	brne	.+58     	; 0x724 <fan_control+0xbe>
+     6ea:	15 c0       	rjmp	.+42     	; 0x716 <fan_control+0xb0>
+	{
+		case '1':	// CONTROL
+			SPI_u8Transreceive(FAN_CONTROL);	
+     6ec:	82 e0       	ldi	r24, 0x02	; 2
+     6ee:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+			EEPROM_voidWriteByte(SWITCH_ON,FAN_ADDRESS); // Write status SWITCH_ON(1) in Fan address in EEPROM
+     6f2:	6c ec       	ldi	r22, 0xCC	; 204
+     6f4:	70 e0       	ldi	r23, 0x00	; 0
+     6f6:	81 e0       	ldi	r24, 0x01	; 1
+     6f8:	0e 94 42 07 	call	0xe84	; 0xe84 <EEPROM_voidWriteByte>
+			
+			break;
+     6fc:	22 c0       	rjmp	.+68     	; 0x742 <fan_control+0xdc>
+		
+		case '2':	// Switch_OFF
+			SPI_u8Transreceive(SWITCH_OFF);
+     6fe:	80 e0       	ldi	r24, 0x00	; 0
+     700:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+			EEPROM_voidWriteByte(SWITCH_OFF,FAN_ADDRESS);	// Write status SWITCH_OFF0 in Fan address in EEPROM
+     704:	6c ec       	ldi	r22, 0xCC	; 204
+     706:	70 e0       	ldi	r23, 0x00	; 0
+     708:	80 e0       	ldi	r24, 0x00	; 0
+     70a:	0e 94 42 07 	call	0xe84	; 0xe84 <EEPROM_voidWriteByte>
+			*fanFlag = 1;
+     70e:	81 e0       	ldi	r24, 0x01	; 1
+     710:	f8 01       	movw	r30, r16
+     712:	80 83       	st	Z, r24
+			break;
+     714:	16 c0       	rjmp	.+44     	; 0x742 <fan_control+0xdc>
+		case '0':	//Return
+			SPI_u8Transreceive(RETURN);
+     716:	83 e0       	ldi	r24, 0x03	; 3
+     718:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+			*fanFlag = 1;
+     71c:	81 e0       	ldi	r24, 0x01	; 1
+     71e:	f8 01       	movw	r30, r16
+     720:	80 83       	st	Z, r24
+			break;
+     722:	0f c0       	rjmp	.+30     	; 0x742 <fan_control+0xdc>
+		
+		default: // if user press any other key
+			CLCD_voidClearDisplay();
+     724:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+			CLCD_voidSendString("Wrong Choice.");
+     728:	8b e3       	ldi	r24, 0x3B	; 59
+     72a:	91 e0       	ldi	r25, 0x01	; 1
+     72c:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     730:	ff ef       	ldi	r31, 0xFF	; 255
+     732:	23 ed       	ldi	r18, 0xD3	; 211
+     734:	80 e3       	ldi	r24, 0x30	; 48
+     736:	f1 50       	subi	r31, 0x01	; 1
+     738:	20 40       	sbci	r18, 0x00	; 0
+     73a:	80 40       	sbci	r24, 0x00	; 0
+     73c:	e1 f7       	brne	.-8      	; 0x736 <fan_control+0xd0>
+     73e:	00 c0       	rjmp	.+0      	; 0x740 <fan_control+0xda>
+     740:	00 00       	nop
+			_delay_ms(LCD_CLR_DELAY);
+			break;
+	}
+}
+     742:	0f 90       	pop	r0
+     744:	df 91       	pop	r29
+     746:	cf 91       	pop	r28
+     748:	1f 91       	pop	r17
+     74a:	0f 91       	pop	r16
+     74c:	08 95       	ret
+
+0000074e <guestPage>:
+
+
+void guestPage()
+{
+     74e:	1f 93       	push	r17
+     750:	cf 93       	push	r28
+     752:	df 93       	push	r29
+     754:	1f 92       	push	r1
+     756:	cd b7       	in	r28, 0x3d	; 61
+     758:	de b7       	in	r29, 0x3e	; 62
+		TWI_voidStop(); // STOP TWI
+     75a:	0e 94 f1 0a 	call	0x15e2	; 0x15e2 <TWI_voidStop>
+		CLCD_voidSendString("Choose Room ");
+     75e:	8f e9       	ldi	r24, 0x9F	; 159
+     760:	91 e0       	ldi	r25, 0x01	; 1
+     762:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+		CLCD_voidSendStringPosition("to Control",1,6);
+     766:	46 e0       	ldi	r20, 0x06	; 6
+     768:	61 e0       	ldi	r22, 0x01	; 1
+     76a:	8c ea       	ldi	r24, 0xAC	; 172
+     76c:	91 e0       	ldi	r25, 0x01	; 1
+     76e:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+     772:	2f ef       	ldi	r18, 0xFF	; 255
+     774:	83 ed       	ldi	r24, 0xD3	; 211
+     776:	90 e3       	ldi	r25, 0x30	; 48
+     778:	21 50       	subi	r18, 0x01	; 1
+     77a:	80 40       	sbci	r24, 0x00	; 0
+     77c:	90 40       	sbci	r25, 0x00	; 0
+     77e:	e1 f7       	brne	.-8      	; 0x778 <guestPage+0x2a>
+     780:	00 c0       	rjmp	.+0      	; 0x782 <guestPage+0x34>
+     782:	00 00       	nop
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+     784:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+		
+		/* ROOMS PAGE*/
+		u8 RoomsFlag = 0;
+     788:	10 e0       	ldi	r17, 0x00	; 0
+		while(RoomsFlag == 0)
+     78a:	81 c0       	rjmp	.+258    	; 0x88e <__stack+0x2f>
+		{
+			CLCD_voidClearDisplay();
+     78c:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+			CLCD_voidSendStringPosition("1:Room1  2:Room2",0,0);
+     790:	40 e0       	ldi	r20, 0x00	; 0
+     792:	60 e0       	ldi	r22, 0x00	; 0
+     794:	87 eb       	ldi	r24, 0xB7	; 183
+     796:	91 e0       	ldi	r25, 0x01	; 1
+     798:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+			CLCD_voidSendStringPosition("3:Room3  4:Room4",1,0);
+     79c:	40 e0       	ldi	r20, 0x00	; 0
+     79e:	61 e0       	ldi	r22, 0x01	; 1
+     7a0:	88 ec       	ldi	r24, 0xC8	; 200
+     7a2:	91 e0       	ldi	r25, 0x01	; 1
+     7a4:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+			keyPressed = NOT_PRESSED;
+     7a8:	8f ef       	ldi	r24, 0xFF	; 255
+     7aa:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+			while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     7ae:	04 c0       	rjmp	.+8      	; 0x7b8 <guestPage+0x6a>
+			{
+				keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+     7b0:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+     7b4:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+		{
+			CLCD_voidClearDisplay();
+			CLCD_voidSendStringPosition("1:Room1  2:Room2",0,0);
+			CLCD_voidSendStringPosition("3:Room3  4:Room4",1,0);
+			keyPressed = NOT_PRESSED;
+			while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     7b8:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     7bc:	8f 3f       	cpi	r24, 0xFF	; 255
+     7be:	c1 f3       	breq	.-16     	; 0x7b0 <guestPage+0x62>
+			{
+				keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+			}		
+			switch(keyPressed)	
+     7c0:	83 33       	cpi	r24, 0x33	; 51
+     7c2:	61 f1       	breq	.+88     	; 0x81c <__DATA_REGION_LENGTH__+0x1c>
+     7c4:	28 f4       	brcc	.+10     	; 0x7d0 <guestPage+0x82>
+     7c6:	81 33       	cpi	r24, 0x31	; 49
+     7c8:	49 f0       	breq	.+18     	; 0x7dc <guestPage+0x8e>
+     7ca:	82 33       	cpi	r24, 0x32	; 50
+     7cc:	b9 f0       	breq	.+46     	; 0x7fc <guestPage+0xae>
+     7ce:	50 c0       	rjmp	.+160    	; 0x870 <__stack+0x11>
+     7d0:	84 33       	cpi	r24, 0x34	; 52
+     7d2:	a1 f1       	breq	.+104    	; 0x83c <__DATA_REGION_LENGTH__+0x3c>
+     7d4:	83 34       	cpi	r24, 0x43	; 67
+     7d6:	09 f4       	brne	.+2      	; 0x7da <guestPage+0x8c>
+     7d8:	41 c0       	rjmp	.+130    	; 0x85c <__DATA_REGION_LENGTH__+0x5c>
+     7da:	4a c0       	rjmp	.+148    	; 0x870 <__stack+0x11>
+			{
+				case '1':	//Room1
+					CLCD_voidClearDisplay();
+     7dc:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					u8 room1Flag=0;
+     7e0:	19 82       	std	Y+1, r1	; 0x01
+					while (room1Flag == 0)
+     7e2:	08 c0       	rjmp	.+16     	; 0x7f4 <guestPage+0xa6>
+					{
+						/*  room1Flag -> Room1 Flag and return as a pointer to exit from loop */
+						SPI_u8Transreceive(SPI_ROOM1);
+     7e4:	80 e0       	ldi	r24, 0x00	; 0
+     7e6:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+						room_control(&room1Flag,ROOM1_ADDRESS);	//Room1 Control Page
+     7ea:	68 ec       	ldi	r22, 0xC8	; 200
+     7ec:	ce 01       	movw	r24, r28
+     7ee:	01 96       	adiw	r24, 0x01	; 1
+     7f0:	0e 94 a3 02 	call	0x546	; 0x546 <room_control>
+			switch(keyPressed)	
+			{
+				case '1':	//Room1
+					CLCD_voidClearDisplay();
+					u8 room1Flag=0;
+					while (room1Flag == 0)
+     7f4:	89 81       	ldd	r24, Y+1	; 0x01
+     7f6:	88 23       	and	r24, r24
+     7f8:	a9 f3       	breq	.-22     	; 0x7e4 <guestPage+0x96>
+     7fa:	49 c0       	rjmp	.+146    	; 0x88e <__stack+0x2f>
+						room_control(&room1Flag,ROOM1_ADDRESS);	//Room1 Control Page
+					}
+				break; 
+				
+				case '2':	//Room2
+					CLCD_voidClearDisplay();
+     7fc:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					u8 room2Flag=0;
+     800:	19 82       	std	Y+1, r1	; 0x01
+					while (room2Flag == 0)
+     802:	08 c0       	rjmp	.+16     	; 0x814 <__DATA_REGION_LENGTH__+0x14>
+					{
+						/*  room2Flag -> Room2 Flag and return as a pointer to exit from loop */	
+						SPI_u8Transreceive(SPI_ROOM2);
+     804:	81 e0       	ldi	r24, 0x01	; 1
+     806:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+						room_control(&room2Flag,ROOM2_ADDRESS);	//Room2 Control Page
+     80a:	69 ec       	ldi	r22, 0xC9	; 201
+     80c:	ce 01       	movw	r24, r28
+     80e:	01 96       	adiw	r24, 0x01	; 1
+     810:	0e 94 a3 02 	call	0x546	; 0x546 <room_control>
+				break; 
+				
+				case '2':	//Room2
+					CLCD_voidClearDisplay();
+					u8 room2Flag=0;
+					while (room2Flag == 0)
+     814:	89 81       	ldd	r24, Y+1	; 0x01
+     816:	88 23       	and	r24, r24
+     818:	a9 f3       	breq	.-22     	; 0x804 <__DATA_REGION_LENGTH__+0x4>
+     81a:	39 c0       	rjmp	.+114    	; 0x88e <__stack+0x2f>
+						SPI_u8Transreceive(SPI_ROOM2);
+						room_control(&room2Flag,ROOM2_ADDRESS);	//Room2 Control Page
+					}				
+				break;
+				case '3':  //Room3
+					CLCD_voidClearDisplay();
+     81c:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					u8 room3Flag=0;
+     820:	19 82       	std	Y+1, r1	; 0x01
+					while (room3Flag == 0)
+     822:	08 c0       	rjmp	.+16     	; 0x834 <__DATA_REGION_LENGTH__+0x34>
+					{
+						/*  room3Flag -> Room3 Flag and return as a pointer to exit from loop */
+						SPI_u8Transreceive(SPI_ROOM3);
+     824:	82 e0       	ldi	r24, 0x02	; 2
+     826:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+						room_control(&room3Flag,ROOM3_ADDRESS);	//Room3 Control Page
+     82a:	6a ec       	ldi	r22, 0xCA	; 202
+     82c:	ce 01       	movw	r24, r28
+     82e:	01 96       	adiw	r24, 0x01	; 1
+     830:	0e 94 a3 02 	call	0x546	; 0x546 <room_control>
+					}				
+				break;
+				case '3':  //Room3
+					CLCD_voidClearDisplay();
+					u8 room3Flag=0;
+					while (room3Flag == 0)
+     834:	89 81       	ldd	r24, Y+1	; 0x01
+     836:	88 23       	and	r24, r24
+     838:	a9 f3       	breq	.-22     	; 0x824 <__DATA_REGION_LENGTH__+0x24>
+     83a:	29 c0       	rjmp	.+82     	; 0x88e <__stack+0x2f>
+						SPI_u8Transreceive(SPI_ROOM3);
+						room_control(&room3Flag,ROOM3_ADDRESS);	//Room3 Control Page
+					}			
+				break;
+				case '4':	//Room4
+					CLCD_voidClearDisplay();
+     83c:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					u8 room4Flag=0;
+     840:	19 82       	std	Y+1, r1	; 0x01
+					while (room4Flag == 0)
+     842:	08 c0       	rjmp	.+16     	; 0x854 <__DATA_REGION_LENGTH__+0x54>
+					{
+						/*  room4Flag -> Room4 Flag and return as a pointer to exit from loop */	
+						SPI_u8Transreceive(SPI_ROOM4);
+     844:	83 e0       	ldi	r24, 0x03	; 3
+     846:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+						room_control(&room4Flag,ROOM4_ADDRESS);	//Room4 Control Page
+     84a:	6b ec       	ldi	r22, 0xCB	; 203
+     84c:	ce 01       	movw	r24, r28
+     84e:	01 96       	adiw	r24, 0x01	; 1
+     850:	0e 94 a3 02 	call	0x546	; 0x546 <room_control>
+					}			
+				break;
+				case '4':	//Room4
+					CLCD_voidClearDisplay();
+					u8 room4Flag=0;
+					while (room4Flag == 0)
+     854:	89 81       	ldd	r24, Y+1	; 0x01
+     856:	88 23       	and	r24, r24
+     858:	a9 f3       	breq	.-22     	; 0x844 <__DATA_REGION_LENGTH__+0x44>
+     85a:	19 c0       	rjmp	.+50     	; 0x88e <__stack+0x2f>
+						SPI_u8Transreceive(SPI_ROOM4);
+						room_control(&room4Flag,ROOM4_ADDRESS);	//Room4 Control Page
+					}			
+				break;
+				case 'C':	//Return to mode selection page
+					DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8LOW);	//TurnOff Green Led
+     85c:	40 e0       	ldi	r20, 0x00	; 0
+     85e:	66 e0       	ldi	r22, 0x06	; 6
+     860:	83 e0       	ldi	r24, 0x03	; 3
+     862:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+					SPI_u8Transreceive(SPI_RESET);
+     866:	86 e0       	ldi	r24, 0x06	; 6
+     868:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+					RoomsFlag = 1;	
+     86c:	11 e0       	ldi	r17, 0x01	; 1
+					break;
+     86e:	0f c0       	rjmp	.+30     	; 0x88e <__stack+0x2f>
+					
+				default: // if user press any other key 
+					CLCD_voidClearDisplay();
+     870:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					CLCD_voidSendString("Wrong Choice.");
+     874:	8b e3       	ldi	r24, 0x3B	; 59
+     876:	91 e0       	ldi	r25, 0x01	; 1
+     878:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     87c:	2f ef       	ldi	r18, 0xFF	; 255
+     87e:	83 ed       	ldi	r24, 0xD3	; 211
+     880:	90 e3       	ldi	r25, 0x30	; 48
+     882:	21 50       	subi	r18, 0x01	; 1
+     884:	80 40       	sbci	r24, 0x00	; 0
+     886:	90 40       	sbci	r25, 0x00	; 0
+     888:	e1 f7       	brne	.-8      	; 0x882 <__stack+0x23>
+     88a:	00 c0       	rjmp	.+0      	; 0x88c <__stack+0x2d>
+     88c:	00 00       	nop
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+		
+		/* ROOMS PAGE*/
+		u8 RoomsFlag = 0;
+		while(RoomsFlag == 0)
+     88e:	11 23       	and	r17, r17
+     890:	09 f4       	brne	.+2      	; 0x894 <__stack+0x35>
+     892:	7c cf       	rjmp	.-264    	; 0x78c <guestPage+0x3e>
+					CLCD_voidSendString("Wrong Choice.");
+					_delay_ms(LCD_CLR_DELAY);
+				break;		
+			}
+		}	//End ROOM PAGE	
+}
+     894:	0f 90       	pop	r0
+     896:	df 91       	pop	r29
+     898:	cf 91       	pop	r28
+     89a:	1f 91       	pop	r17
+     89c:	08 95       	ret
+
+0000089e <adminPage>:
+
+
+void adminPage()
+{
+     89e:	0f 93       	push	r16
+     8a0:	1f 93       	push	r17
+     8a2:	cf 93       	push	r28
+     8a4:	df 93       	push	r29
+     8a6:	1f 92       	push	r1
+     8a8:	cd b7       	in	r28, 0x3d	; 61
+     8aa:	de b7       	in	r29, 0x3e	; 62
+		TWI_voidStop(); // STOP TWI
+     8ac:	0e 94 f1 0a 	call	0x15e2	; 0x15e2 <TWI_voidStop>
+		CLCD_voidSendString("Choose Room ");
+     8b0:	8f e9       	ldi	r24, 0x9F	; 159
+     8b2:	91 e0       	ldi	r25, 0x01	; 1
+     8b4:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+		CLCD_voidSendStringPosition("to Control",1,6);
+     8b8:	46 e0       	ldi	r20, 0x06	; 6
+     8ba:	61 e0       	ldi	r22, 0x01	; 1
+     8bc:	8c ea       	ldi	r24, 0xAC	; 172
+     8be:	91 e0       	ldi	r25, 0x01	; 1
+     8c0:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+     8c4:	2f ef       	ldi	r18, 0xFF	; 255
+     8c6:	83 ed       	ldi	r24, 0xD3	; 211
+     8c8:	90 e3       	ldi	r25, 0x30	; 48
+     8ca:	21 50       	subi	r18, 0x01	; 1
+     8cc:	80 40       	sbci	r24, 0x00	; 0
+     8ce:	90 40       	sbci	r25, 0x00	; 0
+     8d0:	e1 f7       	brne	.-8      	; 0x8ca <adminPage+0x2c>
+     8d2:	00 c0       	rjmp	.+0      	; 0x8d4 <adminPage+0x36>
+     8d4:	00 00       	nop
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+     8d6:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+	
+		/* ROOMS PAGE*/
+		u8 RoomsFlag1 = 0,RoomsFlag2 = 1;
+     8da:	00 e0       	ldi	r16, 0x00	; 0
+		while(RoomsFlag1 == 0)
+     8dc:	ed c0       	rjmp	.+474    	; 0xab8 <adminPage+0x21a>
+		{
+			CLCD_voidClearDisplay();
+     8de:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+			CLCD_voidSendStringPosition("1:Room1  2:Room2",0,0);
+     8e2:	40 e0       	ldi	r20, 0x00	; 0
+     8e4:	60 e0       	ldi	r22, 0x00	; 0
+     8e6:	87 eb       	ldi	r24, 0xB7	; 183
+     8e8:	91 e0       	ldi	r25, 0x01	; 1
+     8ea:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+			CLCD_voidSendStringPosition("3:Room3  4:More",1,0);
+     8ee:	40 e0       	ldi	r20, 0x00	; 0
+     8f0:	61 e0       	ldi	r22, 0x01	; 1
+     8f2:	89 ed       	ldi	r24, 0xD9	; 217
+     8f4:	91 e0       	ldi	r25, 0x01	; 1
+     8f6:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+			keyPressed = NOT_PRESSED;
+     8fa:	8f ef       	ldi	r24, 0xFF	; 255
+     8fc:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+			while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     900:	04 c0       	rjmp	.+8      	; 0x90a <adminPage+0x6c>
+			{
+				keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+     902:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+     906:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+		{
+			CLCD_voidClearDisplay();
+			CLCD_voidSendStringPosition("1:Room1  2:Room2",0,0);
+			CLCD_voidSendStringPosition("3:Room3  4:More",1,0);
+			keyPressed = NOT_PRESSED;
+			while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     90a:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     90e:	8f 3f       	cpi	r24, 0xFF	; 255
+     910:	c1 f3       	breq	.-16     	; 0x902 <adminPage+0x64>
+			{
+				keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+			}		
+			switch(keyPressed)	
+     912:	83 33       	cpi	r24, 0x33	; 51
+     914:	69 f1       	breq	.+90     	; 0x970 <adminPage+0xd2>
+     916:	28 f4       	brcc	.+10     	; 0x922 <adminPage+0x84>
+     918:	81 33       	cpi	r24, 0x31	; 49
+     91a:	51 f0       	breq	.+20     	; 0x930 <adminPage+0x92>
+     91c:	82 33       	cpi	r24, 0x32	; 50
+     91e:	c1 f0       	breq	.+48     	; 0x950 <adminPage+0xb2>
+     920:	bc c0       	rjmp	.+376    	; 0xa9a <adminPage+0x1fc>
+     922:	84 33       	cpi	r24, 0x34	; 52
+     924:	09 f4       	brne	.+2      	; 0x928 <adminPage+0x8a>
+     926:	aa c0       	rjmp	.+340    	; 0xa7c <adminPage+0x1de>
+     928:	83 34       	cpi	r24, 0x43	; 67
+     92a:	09 f4       	brne	.+2      	; 0x92e <adminPage+0x90>
+     92c:	ac c0       	rjmp	.+344    	; 0xa86 <adminPage+0x1e8>
+     92e:	b5 c0       	rjmp	.+362    	; 0xa9a <adminPage+0x1fc>
+			{
+				case '1':	//Room1
+					CLCD_voidClearDisplay();
+     930:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					u8 room1Flag=0;
+     934:	19 82       	std	Y+1, r1	; 0x01
+					while (room1Flag == 0)
+     936:	08 c0       	rjmp	.+16     	; 0x948 <adminPage+0xaa>
+					{
+						/*  room1Flag -> Room1 Flag and return as a pointer to exit from loop */
+						SPI_u8Transreceive(SPI_ROOM1);
+     938:	80 e0       	ldi	r24, 0x00	; 0
+     93a:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+						room_control(&room1Flag,ROOM1_ADDRESS);	//Room1 Control Page
+     93e:	68 ec       	ldi	r22, 0xC8	; 200
+     940:	ce 01       	movw	r24, r28
+     942:	01 96       	adiw	r24, 0x01	; 1
+     944:	0e 94 a3 02 	call	0x546	; 0x546 <room_control>
+			switch(keyPressed)	
+			{
+				case '1':	//Room1
+					CLCD_voidClearDisplay();
+					u8 room1Flag=0;
+					while (room1Flag == 0)
+     948:	89 81       	ldd	r24, Y+1	; 0x01
+     94a:	88 23       	and	r24, r24
+     94c:	a9 f3       	breq	.-22     	; 0x938 <adminPage+0x9a>
+     94e:	b4 c0       	rjmp	.+360    	; 0xab8 <adminPage+0x21a>
+						room_control(&room1Flag,ROOM1_ADDRESS);	//Room1 Control Page
+					}
+				break; 
+				
+				case '2':	//Room2
+					CLCD_voidClearDisplay();
+     950:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					u8 room2Flag=0;
+     954:	19 82       	std	Y+1, r1	; 0x01
+					while (room2Flag == 0)
+     956:	08 c0       	rjmp	.+16     	; 0x968 <adminPage+0xca>
+					{
+						/*  room2Flag -> Room2 Flag and return as a pointer to exit from loop */
+						SPI_u8Transreceive(SPI_ROOM2);	//Room2
+     958:	81 e0       	ldi	r24, 0x01	; 1
+     95a:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+						room_control(&room2Flag,ROOM2_ADDRESS);	//Room2 Control Page
+     95e:	69 ec       	ldi	r22, 0xC9	; 201
+     960:	ce 01       	movw	r24, r28
+     962:	01 96       	adiw	r24, 0x01	; 1
+     964:	0e 94 a3 02 	call	0x546	; 0x546 <room_control>
+				break; 
+				
+				case '2':	//Room2
+					CLCD_voidClearDisplay();
+					u8 room2Flag=0;
+					while (room2Flag == 0)
+     968:	89 81       	ldd	r24, Y+1	; 0x01
+     96a:	88 23       	and	r24, r24
+     96c:	a9 f3       	breq	.-22     	; 0x958 <adminPage+0xba>
+     96e:	a4 c0       	rjmp	.+328    	; 0xab8 <adminPage+0x21a>
+						SPI_u8Transreceive(SPI_ROOM2);	//Room2
+						room_control(&room2Flag,ROOM2_ADDRESS);	//Room2 Control Page
+					}				
+				break;
+				case '3':  //Room3
+					CLCD_voidClearDisplay();
+     970:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					u8 room3Flag=0;
+     974:	19 82       	std	Y+1, r1	; 0x01
+					while (room3Flag == 0)
+     976:	08 c0       	rjmp	.+16     	; 0x988 <adminPage+0xea>
+					{
+						/*  room3Flag -> Room3 Flag and return as a pointer to exit from loop */
+						SPI_u8Transreceive(SPI_ROOM3);	//Room2
+     978:	82 e0       	ldi	r24, 0x02	; 2
+     97a:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+						room_control(&room3Flag,ROOM3_ADDRESS);	//Room3 Control Page
+     97e:	6a ec       	ldi	r22, 0xCA	; 202
+     980:	ce 01       	movw	r24, r28
+     982:	01 96       	adiw	r24, 0x01	; 1
+     984:	0e 94 a3 02 	call	0x546	; 0x546 <room_control>
+					}				
+				break;
+				case '3':  //Room3
+					CLCD_voidClearDisplay();
+					u8 room3Flag=0;
+					while (room3Flag == 0)
+     988:	89 81       	ldd	r24, Y+1	; 0x01
+     98a:	88 23       	and	r24, r24
+     98c:	a9 f3       	breq	.-22     	; 0x978 <adminPage+0xda>
+     98e:	94 c0       	rjmp	.+296    	; 0xab8 <adminPage+0x21a>
+				case '4':	//More
+					RoomsFlag2 = 0;
+					//ROOM PAGE 2
+					while(RoomsFlag2 == 0)
+					{
+						CLCD_voidClearDisplay();
+     990:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+						CLCD_voidSendStringPosition("1:Room4	   2:Fan",0,0);
+     994:	40 e0       	ldi	r20, 0x00	; 0
+     996:	60 e0       	ldi	r22, 0x00	; 0
+     998:	89 ee       	ldi	r24, 0xE9	; 233
+     99a:	91 e0       	ldi	r25, 0x01	; 1
+     99c:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+						CLCD_voidSendStringPosition("3:Reset	   4:Ret",1,0);
+     9a0:	40 e0       	ldi	r20, 0x00	; 0
+     9a2:	61 e0       	ldi	r22, 0x01	; 1
+     9a4:	8a ef       	ldi	r24, 0xFA	; 250
+     9a6:	91 e0       	ldi	r25, 0x01	; 1
+     9a8:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+						keyPressed = NOT_PRESSED;
+     9ac:	8f ef       	ldi	r24, 0xFF	; 255
+     9ae:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+						while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     9b2:	04 c0       	rjmp	.+8      	; 0x9bc <adminPage+0x11e>
+						{
+							keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+     9b4:	0e 94 8a 07 	call	0xf14	; 0xf14 <KPD_u8GetPressedKey>
+     9b8:	80 93 31 02 	sts	0x0231, r24	; 0x800231 <keyPressed>
+					{
+						CLCD_voidClearDisplay();
+						CLCD_voidSendStringPosition("1:Room4	   2:Fan",0,0);
+						CLCD_voidSendStringPosition("3:Reset	   4:Ret",1,0);
+						keyPressed = NOT_PRESSED;
+						while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+     9bc:	80 91 31 02 	lds	r24, 0x0231	; 0x800231 <keyPressed>
+     9c0:	8f 3f       	cpi	r24, 0xFF	; 255
+     9c2:	c1 f3       	breq	.-16     	; 0x9b4 <adminPage+0x116>
+						{
+							keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+						}		
+						switch(keyPressed)	
+     9c4:	83 33       	cpi	r24, 0x33	; 51
+     9c6:	59 f1       	breq	.+86     	; 0xa1e <adminPage+0x180>
+     9c8:	28 f4       	brcc	.+10     	; 0x9d4 <adminPage+0x136>
+     9ca:	81 33       	cpi	r24, 0x31	; 49
+     9cc:	49 f0       	breq	.+18     	; 0x9e0 <adminPage+0x142>
+     9ce:	82 33       	cpi	r24, 0x32	; 50
+     9d0:	b9 f0       	breq	.+46     	; 0xa00 <adminPage+0x162>
+     9d2:	42 c0       	rjmp	.+132    	; 0xa58 <adminPage+0x1ba>
+     9d4:	84 33       	cpi	r24, 0x34	; 52
+     9d6:	09 f4       	brne	.+2      	; 0x9da <adminPage+0x13c>
+     9d8:	4f c0       	rjmp	.+158    	; 0xa78 <adminPage+0x1da>
+     9da:	83 34       	cpi	r24, 0x43	; 67
+     9dc:	91 f1       	breq	.+100    	; 0xa42 <adminPage+0x1a4>
+     9de:	3c c0       	rjmp	.+120    	; 0xa58 <adminPage+0x1ba>
+						{
+							case '1':	//Room4
+								CLCD_voidClearDisplay();
+     9e0:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+								u8 room4Flag=0;
+     9e4:	19 82       	std	Y+1, r1	; 0x01
+								while (room4Flag == 0)
+     9e6:	08 c0       	rjmp	.+16     	; 0x9f8 <adminPage+0x15a>
+								{
+									/*  room4Flag -> Room4 Flag and return as a pointer to exit from loop */
+									SPI_u8Transreceive(SPI_ROOM4);	//Room4
+     9e8:	83 e0       	ldi	r24, 0x03	; 3
+     9ea:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+									room_control(&room4Flag,ROOM4_ADDRESS);	//Room4 Control Page
+     9ee:	6b ec       	ldi	r22, 0xCB	; 203
+     9f0:	ce 01       	movw	r24, r28
+     9f2:	01 96       	adiw	r24, 0x01	; 1
+     9f4:	0e 94 a3 02 	call	0x546	; 0x546 <room_control>
+						switch(keyPressed)	
+						{
+							case '1':	//Room4
+								CLCD_voidClearDisplay();
+								u8 room4Flag=0;
+								while (room4Flag == 0)
+     9f8:	89 81       	ldd	r24, Y+1	; 0x01
+     9fa:	88 23       	and	r24, r24
+     9fc:	a9 f3       	breq	.-22     	; 0x9e8 <adminPage+0x14a>
+     9fe:	3f c0       	rjmp	.+126    	; 0xa7e <adminPage+0x1e0>
+									room_control(&room4Flag,ROOM4_ADDRESS);	//Room4 Control Page
+								}
+							break; 
+							
+							case '2':	//Fan
+								CLCD_voidClearDisplay();
+     a00:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+								u8 fanFlag=0;  
+     a04:	19 82       	std	Y+1, r1	; 0x01
+								SPI_u8Transreceive(SPI_FAN);	//FAN
+     a06:	85 e0       	ldi	r24, 0x05	; 5
+     a08:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+								while (fanFlag == 0)
+     a0c:	04 c0       	rjmp	.+8      	; 0xa16 <adminPage+0x178>
+								{
+									fan_control(&fanFlag);
+     a0e:	ce 01       	movw	r24, r28
+     a10:	01 96       	adiw	r24, 0x01	; 1
+     a12:	0e 94 33 03 	call	0x666	; 0x666 <fan_control>
+							
+							case '2':	//Fan
+								CLCD_voidClearDisplay();
+								u8 fanFlag=0;  
+								SPI_u8Transreceive(SPI_FAN);	//FAN
+								while (fanFlag == 0)
+     a16:	89 81       	ldd	r24, Y+1	; 0x01
+     a18:	88 23       	and	r24, r24
+     a1a:	c9 f3       	breq	.-14     	; 0xa0e <adminPage+0x170>
+     a1c:	30 c0       	rjmp	.+96     	; 0xa7e <adminPage+0x1e0>
+									fan_control(&fanFlag);
+								}
+
+							break;
+							case '3':	//Reset Pass
+								SPI_u8Transreceive(SPI_RESET);	
+     a1e:	86 e0       	ldi	r24, 0x06	; 6
+     a20:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+								EEPROM_voidWriteByte(PASS_NOT_SET,FIRST_LOGIN_ADDRESS);
+     a24:	64 e6       	ldi	r22, 0x64	; 100
+     a26:	70 e0       	ldi	r23, 0x00	; 0
+     a28:	80 e0       	ldi	r24, 0x00	; 0
+     a2a:	0e 94 42 07 	call	0xe84	; 0xe84 <EEPROM_voidWriteByte>
+								DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8LOW);	//TurnOff Green Led
+     a2e:	40 e0       	ldi	r20, 0x00	; 0
+     a30:	66 e0       	ldi	r22, 0x06	; 6
+     a32:	83 e0       	ldi	r24, 0x03	; 3
+     a34:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+								RoomsFlag2=1;
+								RoomsFlag1=1;
+								CLCD_voidClearDisplay();
+     a38:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+							break;
+							case '3':	//Reset Pass
+								SPI_u8Transreceive(SPI_RESET);	
+								EEPROM_voidWriteByte(PASS_NOT_SET,FIRST_LOGIN_ADDRESS);
+								DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8LOW);	//TurnOff Green Led
+								RoomsFlag2=1;
+     a3c:	11 e0       	ldi	r17, 0x01	; 1
+								RoomsFlag1=1;
+     a3e:	01 e0       	ldi	r16, 0x01	; 1
+								CLCD_voidClearDisplay();
+							break;
+     a40:	1e c0       	rjmp	.+60     	; 0xa7e <adminPage+0x1e0>
+							
+							case '4':	//Return
+								RoomsFlag2 = 1;
+								break;
+							case 'C':	//return to mode selection page
+								DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8LOW);	//TurnOff Green Led
+     a42:	40 e0       	ldi	r20, 0x00	; 0
+     a44:	66 e0       	ldi	r22, 0x06	; 6
+     a46:	83 e0       	ldi	r24, 0x03	; 3
+     a48:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+								SPI_u8Transreceive(SPI_RESET);
+     a4c:	86 e0       	ldi	r24, 0x06	; 6
+     a4e:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+								RoomsFlag2 = 1;
+     a52:	11 e0       	ldi	r17, 0x01	; 1
+								RoomsFlag1 = 1;
+     a54:	01 e0       	ldi	r16, 0x01	; 1
+							break;							
+     a56:	13 c0       	rjmp	.+38     	; 0xa7e <adminPage+0x1e0>
+							default: // if user press any other key 
+								CLCD_voidClearDisplay();
+     a58:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+								CLCD_voidSendString("Wrong Choice.");
+     a5c:	8b e3       	ldi	r24, 0x3B	; 59
+     a5e:	91 e0       	ldi	r25, 0x01	; 1
+     a60:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     a64:	2f ef       	ldi	r18, 0xFF	; 255
+     a66:	83 ed       	ldi	r24, 0xD3	; 211
+     a68:	90 e3       	ldi	r25, 0x30	; 48
+     a6a:	21 50       	subi	r18, 0x01	; 1
+     a6c:	80 40       	sbci	r24, 0x00	; 0
+     a6e:	90 40       	sbci	r25, 0x00	; 0
+     a70:	e1 f7       	brne	.-8      	; 0xa6a <adminPage+0x1cc>
+     a72:	00 c0       	rjmp	.+0      	; 0xa74 <adminPage+0x1d6>
+     a74:	00 00       	nop
+     a76:	03 c0       	rjmp	.+6      	; 0xa7e <adminPage+0x1e0>
+								RoomsFlag1=1;
+								CLCD_voidClearDisplay();
+							break;
+							
+							case '4':	//Return
+								RoomsFlag2 = 1;
+     a78:	11 e0       	ldi	r17, 0x01	; 1
+     a7a:	01 c0       	rjmp	.+2      	; 0xa7e <adminPage+0x1e0>
+			keyPressed = NOT_PRESSED;
+			while (keyPressed == NOT_PRESSED)	//repeat till the user press any key
+			{
+				keyPressed = KPD_u8GetPressedKey();		//if the user pressed any button in keypad save the value in keyPressed
+			}		
+			switch(keyPressed)	
+     a7c:	10 e0       	ldi	r17, 0x00	; 0
+					}			
+				break;
+				case '4':	//More
+					RoomsFlag2 = 0;
+					//ROOM PAGE 2
+					while(RoomsFlag2 == 0)
+     a7e:	11 23       	and	r17, r17
+     a80:	09 f4       	brne	.+2      	; 0xa84 <adminPage+0x1e6>
+     a82:	86 cf       	rjmp	.-244    	; 0x990 <adminPage+0xf2>
+     a84:	19 c0       	rjmp	.+50     	; 0xab8 <adminPage+0x21a>
+						} // End switch
+					}	//End while(RoomsFlag2 == 1)		
+					
+				break;
+				case 'C':	//return to mode selection page
+					DIO_u8SetPinValue(DIO_u8PORTC,DIO_u8PIN6,DIO_u8LOW);	//TurnOff Green Led
+     a86:	40 e0       	ldi	r20, 0x00	; 0
+     a88:	66 e0       	ldi	r22, 0x06	; 6
+     a8a:	83 e0       	ldi	r24, 0x03	; 3
+     a8c:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+					SPI_u8Transreceive(SPI_RESET);
+     a90:	86 e0       	ldi	r24, 0x06	; 6
+     a92:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+					RoomsFlag1 = 1;
+     a96:	01 e0       	ldi	r16, 0x01	; 1
+					break;
+     a98:	0f c0       	rjmp	.+30     	; 0xab8 <adminPage+0x21a>
+				default: // if user press any other key 
+					CLCD_voidClearDisplay();
+     a9a:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					CLCD_voidSendString("Wrong Choice.");
+     a9e:	8b e3       	ldi	r24, 0x3B	; 59
+     aa0:	91 e0       	ldi	r25, 0x01	; 1
+     aa2:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     aa6:	2f ef       	ldi	r18, 0xFF	; 255
+     aa8:	83 ed       	ldi	r24, 0xD3	; 211
+     aaa:	90 e3       	ldi	r25, 0x30	; 48
+     aac:	21 50       	subi	r18, 0x01	; 1
+     aae:	80 40       	sbci	r24, 0x00	; 0
+     ab0:	90 40       	sbci	r25, 0x00	; 0
+     ab2:	e1 f7       	brne	.-8      	; 0xaac <adminPage+0x20e>
+     ab4:	00 c0       	rjmp	.+0      	; 0xab6 <adminPage+0x218>
+     ab6:	00 00       	nop
+		_delay_ms(LCD_CLR_DELAY);
+		CLCD_voidClearDisplay();
+	
+		/* ROOMS PAGE*/
+		u8 RoomsFlag1 = 0,RoomsFlag2 = 1;
+		while(RoomsFlag1 == 0)
+     ab8:	00 23       	and	r16, r16
+     aba:	09 f4       	brne	.+2      	; 0xabe <adminPage+0x220>
+     abc:	10 cf       	rjmp	.-480    	; 0x8de <adminPage+0x40>
+					CLCD_voidSendString("Wrong Choice.");
+					_delay_ms(LCD_CLR_DELAY);
+				break;		
+			}
+		}	//End ROOM PAGE 1	
+}
+     abe:	0f 90       	pop	r0
+     ac0:	df 91       	pop	r29
+     ac2:	cf 91       	pop	r28
+     ac4:	1f 91       	pop	r17
+     ac6:	0f 91       	pop	r16
+     ac8:	08 95       	ret
+
+00000aca <main>:
+u8 column=5;	// password position
+u8 keyPressed;	//Keypad pressed key
+
+int main(void)
+{
+	DIO_voidInit();
+     aca:	0e 94 05 08 	call	0x100a	; 0x100a <DIO_voidInit>
+	CLCD_voidInit();
+     ace:	0e 94 7e 06 	call	0xcfc	; 0xcfc <CLCD_voidInit>
+	KPD_voidInit();
+     ad2:	0e 94 85 07 	call	0xf0a	; 0xf0a <KPD_voidInit>
+	TWI_voidMasterInit(NO_ADDRESS);
+     ad6:	80 e0       	ldi	r24, 0x00	; 0
+     ad8:	0e 94 8a 0a 	call	0x1514	; 0x1514 <TWI_voidMasterInit>
+	
+	ADC_voidInit();
+     adc:	0e 94 f2 07 	call	0xfe4	; 0xfe4 <ADC_voidInit>
+	SPI_voidInit();
+     ae0:	0e 94 26 09 	call	0x124c	; 0x124c <SPI_voidInit>
+	
+	/* Welcome Home Screen*/
+	CLCD_voidSendStringPosition("ITI",0,7);
+     ae4:	47 e0       	ldi	r20, 0x07	; 7
+     ae6:	60 e0       	ldi	r22, 0x00	; 0
+     ae8:	8b e0       	ldi	r24, 0x0B	; 11
+     aea:	92 e0       	ldi	r25, 0x02	; 2
+     aec:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+	CLCD_voidSendStringPosition("SMART HOME",1,3);
+     af0:	43 e0       	ldi	r20, 0x03	; 3
+     af2:	61 e0       	ldi	r22, 0x01	; 1
+     af4:	8f e0       	ldi	r24, 0x0F	; 15
+     af6:	92 e0       	ldi	r25, 0x02	; 2
+     af8:	0e 94 35 07 	call	0xe6a	; 0xe6a <CLCD_voidSendStringPosition>
+     afc:	2f ef       	ldi	r18, 0xFF	; 255
+     afe:	83 ed       	ldi	r24, 0xD3	; 211
+     b00:	90 e3       	ldi	r25, 0x30	; 48
+     b02:	21 50       	subi	r18, 0x01	; 1
+     b04:	80 40       	sbci	r24, 0x00	; 0
+     b06:	90 40       	sbci	r25, 0x00	; 0
+     b08:	e1 f7       	brne	.-8      	; 0xb02 <main+0x38>
+     b0a:	00 c0       	rjmp	.+0      	; 0xb0c <main+0x42>
+     b0c:	00 00       	nop
+	_delay_ms(LCD_CLR_DELAY);
+	CLCD_voidClearDisplay();
+     b0e:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+
+    while (1) 
+    {
+	/* First time Login Page*/
+		firstLoginPage();
+     b12:	0e 94 49 00 	call	0x92	; 0x92 <firstLoginPage>
+	    /* loginMode Function returns the mode to be opened */
+		u8 loginFlag=0,Local_u8LoginPageMode;
+		while(loginFlag == 0)
+     b16:	1d c0       	rjmp	.+58     	; 0xb52 <main+0x88>
+			firstLoginPage();
+			Local_u8LoginPageMode = loginMode();
+			switch(Local_u8LoginPageMode)
+			{
+				case ADMIN_LOGIN_PAGE:
+					SPI_u8Transreceive(SPI_ADMIN_PAGE);
+     b18:	87 e0       	ldi	r24, 0x07	; 7
+     b1a:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+					/* adminPage function open Admin page*/
+					 adminPage();
+     b1e:	0e 94 4f 04 	call	0x89e	; 0x89e <adminPage>
+					break;
+     b22:	17 c0       	rjmp	.+46     	; 0xb52 <main+0x88>
+				case GUEST_LOGIN_PAGE:
+					SPI_u8Transreceive(SPI_GUEST_PAGE);
+     b24:	88 e0       	ldi	r24, 0x08	; 8
+     b26:	0e 94 36 09 	call	0x126c	; 0x126c <SPI_u8Transreceive>
+					/* guestPage function open Guest page*/
+					guestPage();
+     b2a:	0e 94 a7 03 	call	0x74e	; 0x74e <guestPage>
+					break;	
+     b2e:	11 c0       	rjmp	.+34     	; 0xb52 <main+0x88>
+				default:
+					CLCD_voidClearDisplay();
+     b30:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+					CLCD_voidSendString("Wrong Choice.");
+     b34:	8b e3       	ldi	r24, 0x3B	; 59
+     b36:	91 e0       	ldi	r25, 0x01	; 1
+     b38:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     b3c:	2f ef       	ldi	r18, 0xFF	; 255
+     b3e:	83 ed       	ldi	r24, 0xD3	; 211
+     b40:	90 e3       	ldi	r25, 0x30	; 48
+     b42:	21 50       	subi	r18, 0x01	; 1
+     b44:	80 40       	sbci	r24, 0x00	; 0
+     b46:	90 40       	sbci	r25, 0x00	; 0
+     b48:	e1 f7       	brne	.-8      	; 0xb42 <main+0x78>
+     b4a:	00 c0       	rjmp	.+0      	; 0xb4c <main+0x82>
+     b4c:	00 00       	nop
+					_delay_ms(LCD_CLR_DELAY);
+					CLCD_voidClearDisplay();
+     b4e:	0e 94 ad 06 	call	0xd5a	; 0xd5a <CLCD_voidClearDisplay>
+	    /* loginMode Function returns the mode to be opened */
+		u8 loginFlag=0,Local_u8LoginPageMode;
+		while(loginFlag == 0)
+		{
+			/* First time Login Page*/
+			firstLoginPage();
+     b52:	0e 94 49 00 	call	0x92	; 0x92 <firstLoginPage>
+			Local_u8LoginPageMode = loginMode();
+     b56:	0e 94 48 02 	call	0x490	; 0x490 <loginMode>
+			switch(Local_u8LoginPageMode)
+     b5a:	88 23       	and	r24, r24
+     b5c:	e9 f2       	breq	.-70     	; 0xb18 <main+0x4e>
+     b5e:	81 30       	cpi	r24, 0x01	; 1
+     b60:	09 f3       	breq	.-62     	; 0xb24 <main+0x5a>
+     b62:	e6 cf       	rjmp	.-52     	; 0xb30 <main+0x66>
+
+00000b64 <CLCD_voidSendCommand>:
+     b64:	cf 93       	push	r28
+     b66:	c8 2f       	mov	r28, r24
+     b68:	40 e0       	ldi	r20, 0x00	; 0
+     b6a:	62 e0       	ldi	r22, 0x02	; 2
+     b6c:	83 e0       	ldi	r24, 0x03	; 3
+     b6e:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     b72:	40 e0       	ldi	r20, 0x00	; 0
+     b74:	63 e0       	ldi	r22, 0x03	; 3
+     b76:	83 e0       	ldi	r24, 0x03	; 3
+     b78:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     b7c:	c4 fb       	bst	r28, 4
+     b7e:	44 27       	eor	r20, r20
+     b80:	40 f9       	bld	r20, 0
+     b82:	64 e0       	ldi	r22, 0x04	; 4
+     b84:	81 e0       	ldi	r24, 0x01	; 1
+     b86:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     b8a:	c5 fb       	bst	r28, 5
+     b8c:	44 27       	eor	r20, r20
+     b8e:	40 f9       	bld	r20, 0
+     b90:	65 e0       	ldi	r22, 0x05	; 5
+     b92:	81 e0       	ldi	r24, 0x01	; 1
+     b94:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     b98:	c6 fb       	bst	r28, 6
+     b9a:	44 27       	eor	r20, r20
+     b9c:	40 f9       	bld	r20, 0
+     b9e:	66 e0       	ldi	r22, 0x06	; 6
+     ba0:	81 e0       	ldi	r24, 0x01	; 1
+     ba2:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     ba6:	4c 2f       	mov	r20, r28
+     ba8:	44 1f       	adc	r20, r20
+     baa:	44 27       	eor	r20, r20
+     bac:	44 1f       	adc	r20, r20
+     bae:	67 e0       	ldi	r22, 0x07	; 7
+     bb0:	81 e0       	ldi	r24, 0x01	; 1
+     bb2:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     bb6:	41 e0       	ldi	r20, 0x01	; 1
+     bb8:	64 e0       	ldi	r22, 0x04	; 4
+     bba:	83 e0       	ldi	r24, 0x03	; 3
+     bbc:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     bc0:	8f ec       	ldi	r24, 0xCF	; 207
+     bc2:	97 e0       	ldi	r25, 0x07	; 7
+     bc4:	01 97       	sbiw	r24, 0x01	; 1
+     bc6:	f1 f7       	brne	.-4      	; 0xbc4 <CLCD_voidSendCommand+0x60>
+     bc8:	00 c0       	rjmp	.+0      	; 0xbca <CLCD_voidSendCommand+0x66>
+     bca:	00 00       	nop
+     bcc:	40 e0       	ldi	r20, 0x00	; 0
+     bce:	64 e0       	ldi	r22, 0x04	; 4
+     bd0:	83 e0       	ldi	r24, 0x03	; 3
+     bd2:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     bd6:	4c 2f       	mov	r20, r28
+     bd8:	41 70       	andi	r20, 0x01	; 1
+     bda:	64 e0       	ldi	r22, 0x04	; 4
+     bdc:	81 e0       	ldi	r24, 0x01	; 1
+     bde:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     be2:	c1 fb       	bst	r28, 1
+     be4:	44 27       	eor	r20, r20
+     be6:	40 f9       	bld	r20, 0
+     be8:	65 e0       	ldi	r22, 0x05	; 5
+     bea:	81 e0       	ldi	r24, 0x01	; 1
+     bec:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     bf0:	c2 fb       	bst	r28, 2
+     bf2:	44 27       	eor	r20, r20
+     bf4:	40 f9       	bld	r20, 0
+     bf6:	66 e0       	ldi	r22, 0x06	; 6
+     bf8:	81 e0       	ldi	r24, 0x01	; 1
+     bfa:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     bfe:	c3 fb       	bst	r28, 3
+     c00:	44 27       	eor	r20, r20
+     c02:	40 f9       	bld	r20, 0
+     c04:	67 e0       	ldi	r22, 0x07	; 7
+     c06:	81 e0       	ldi	r24, 0x01	; 1
+     c08:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c0c:	41 e0       	ldi	r20, 0x01	; 1
+     c0e:	64 e0       	ldi	r22, 0x04	; 4
+     c10:	83 e0       	ldi	r24, 0x03	; 3
+     c12:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c16:	8f e9       	ldi	r24, 0x9F	; 159
+     c18:	9f e0       	ldi	r25, 0x0F	; 15
+     c1a:	01 97       	sbiw	r24, 0x01	; 1
+     c1c:	f1 f7       	brne	.-4      	; 0xc1a <CLCD_voidSendCommand+0xb6>
+     c1e:	00 c0       	rjmp	.+0      	; 0xc20 <CLCD_voidSendCommand+0xbc>
+     c20:	00 00       	nop
+     c22:	40 e0       	ldi	r20, 0x00	; 0
+     c24:	64 e0       	ldi	r22, 0x04	; 4
+     c26:	83 e0       	ldi	r24, 0x03	; 3
+     c28:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c2c:	cf 91       	pop	r28
+     c2e:	08 95       	ret
+
+00000c30 <CLCD_voidSendCharacter>:
+     c30:	cf 93       	push	r28
+     c32:	c8 2f       	mov	r28, r24
+     c34:	41 e0       	ldi	r20, 0x01	; 1
+     c36:	62 e0       	ldi	r22, 0x02	; 2
+     c38:	83 e0       	ldi	r24, 0x03	; 3
+     c3a:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c3e:	40 e0       	ldi	r20, 0x00	; 0
+     c40:	63 e0       	ldi	r22, 0x03	; 3
+     c42:	83 e0       	ldi	r24, 0x03	; 3
+     c44:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c48:	c4 fb       	bst	r28, 4
+     c4a:	44 27       	eor	r20, r20
+     c4c:	40 f9       	bld	r20, 0
+     c4e:	64 e0       	ldi	r22, 0x04	; 4
+     c50:	81 e0       	ldi	r24, 0x01	; 1
+     c52:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c56:	c5 fb       	bst	r28, 5
+     c58:	44 27       	eor	r20, r20
+     c5a:	40 f9       	bld	r20, 0
+     c5c:	65 e0       	ldi	r22, 0x05	; 5
+     c5e:	81 e0       	ldi	r24, 0x01	; 1
+     c60:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c64:	c6 fb       	bst	r28, 6
+     c66:	44 27       	eor	r20, r20
+     c68:	40 f9       	bld	r20, 0
+     c6a:	66 e0       	ldi	r22, 0x06	; 6
+     c6c:	81 e0       	ldi	r24, 0x01	; 1
+     c6e:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c72:	4c 2f       	mov	r20, r28
+     c74:	44 1f       	adc	r20, r20
+     c76:	44 27       	eor	r20, r20
+     c78:	44 1f       	adc	r20, r20
+     c7a:	67 e0       	ldi	r22, 0x07	; 7
+     c7c:	81 e0       	ldi	r24, 0x01	; 1
+     c7e:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c82:	41 e0       	ldi	r20, 0x01	; 1
+     c84:	64 e0       	ldi	r22, 0x04	; 4
+     c86:	83 e0       	ldi	r24, 0x03	; 3
+     c88:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     c8c:	8f ec       	ldi	r24, 0xCF	; 207
+     c8e:	97 e0       	ldi	r25, 0x07	; 7
+     c90:	01 97       	sbiw	r24, 0x01	; 1
+     c92:	f1 f7       	brne	.-4      	; 0xc90 <CLCD_voidSendCharacter+0x60>
+     c94:	00 c0       	rjmp	.+0      	; 0xc96 <CLCD_voidSendCharacter+0x66>
+     c96:	00 00       	nop
+     c98:	40 e0       	ldi	r20, 0x00	; 0
+     c9a:	64 e0       	ldi	r22, 0x04	; 4
+     c9c:	83 e0       	ldi	r24, 0x03	; 3
+     c9e:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     ca2:	4c 2f       	mov	r20, r28
+     ca4:	41 70       	andi	r20, 0x01	; 1
+     ca6:	64 e0       	ldi	r22, 0x04	; 4
+     ca8:	81 e0       	ldi	r24, 0x01	; 1
+     caa:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     cae:	c1 fb       	bst	r28, 1
+     cb0:	44 27       	eor	r20, r20
+     cb2:	40 f9       	bld	r20, 0
+     cb4:	65 e0       	ldi	r22, 0x05	; 5
+     cb6:	81 e0       	ldi	r24, 0x01	; 1
+     cb8:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     cbc:	c2 fb       	bst	r28, 2
+     cbe:	44 27       	eor	r20, r20
+     cc0:	40 f9       	bld	r20, 0
+     cc2:	66 e0       	ldi	r22, 0x06	; 6
+     cc4:	81 e0       	ldi	r24, 0x01	; 1
+     cc6:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     cca:	c3 fb       	bst	r28, 3
+     ccc:	44 27       	eor	r20, r20
+     cce:	40 f9       	bld	r20, 0
+     cd0:	67 e0       	ldi	r22, 0x07	; 7
+     cd2:	81 e0       	ldi	r24, 0x01	; 1
+     cd4:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     cd8:	41 e0       	ldi	r20, 0x01	; 1
+     cda:	64 e0       	ldi	r22, 0x04	; 4
+     cdc:	83 e0       	ldi	r24, 0x03	; 3
+     cde:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     ce2:	8f e9       	ldi	r24, 0x9F	; 159
+     ce4:	9f e0       	ldi	r25, 0x0F	; 15
+     ce6:	01 97       	sbiw	r24, 0x01	; 1
+     ce8:	f1 f7       	brne	.-4      	; 0xce6 <CLCD_voidSendCharacter+0xb6>
+     cea:	00 c0       	rjmp	.+0      	; 0xcec <CLCD_voidSendCharacter+0xbc>
+     cec:	00 00       	nop
+     cee:	40 e0       	ldi	r20, 0x00	; 0
+     cf0:	64 e0       	ldi	r22, 0x04	; 4
+     cf2:	83 e0       	ldi	r24, 0x03	; 3
+     cf4:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     cf8:	cf 91       	pop	r28
+     cfa:	08 95       	ret
+
+00000cfc <CLCD_voidInit>:
+     cfc:	2f eb       	ldi	r18, 0xBF	; 191
+     cfe:	8a ed       	ldi	r24, 0xDA	; 218
+     d00:	90 e0       	ldi	r25, 0x00	; 0
+     d02:	21 50       	subi	r18, 0x01	; 1
+     d04:	80 40       	sbci	r24, 0x00	; 0
+     d06:	90 40       	sbci	r25, 0x00	; 0
+     d08:	e1 f7       	brne	.-8      	; 0xd02 <CLCD_voidInit+0x6>
+     d0a:	00 c0       	rjmp	.+0      	; 0xd0c <CLCD_voidInit+0x10>
+     d0c:	00 00       	nop
+     d0e:	82 e0       	ldi	r24, 0x02	; 2
+     d10:	0e 94 b2 05 	call	0xb64	; 0xb64 <CLCD_voidSendCommand>
+     d14:	88 e2       	ldi	r24, 0x28	; 40
+     d16:	0e 94 b2 05 	call	0xb64	; 0xb64 <CLCD_voidSendCommand>
+     d1a:	8e e0       	ldi	r24, 0x0E	; 14
+     d1c:	0e 94 b2 05 	call	0xb64	; 0xb64 <CLCD_voidSendCommand>
+     d20:	81 e0       	ldi	r24, 0x01	; 1
+     d22:	0e 94 b2 05 	call	0xb64	; 0xb64 <CLCD_voidSendCommand>
+     d26:	8f ec       	ldi	r24, 0xCF	; 207
+     d28:	97 e0       	ldi	r25, 0x07	; 7
+     d2a:	01 97       	sbiw	r24, 0x01	; 1
+     d2c:	f1 f7       	brne	.-4      	; 0xd2a <CLCD_voidInit+0x2e>
+     d2e:	00 c0       	rjmp	.+0      	; 0xd30 <CLCD_voidInit+0x34>
+     d30:	00 00       	nop
+     d32:	08 95       	ret
+
+00000d34 <CLCD_voidSendString>:
+     d34:	0f 93       	push	r16
+     d36:	1f 93       	push	r17
+     d38:	cf 93       	push	r28
+     d3a:	8c 01       	movw	r16, r24
+     d3c:	c0 e0       	ldi	r28, 0x00	; 0
+     d3e:	03 c0       	rjmp	.+6      	; 0xd46 <CLCD_voidSendString+0x12>
+     d40:	0e 94 18 06 	call	0xc30	; 0xc30 <CLCD_voidSendCharacter>
+     d44:	cf 5f       	subi	r28, 0xFF	; 255
+     d46:	f8 01       	movw	r30, r16
+     d48:	ec 0f       	add	r30, r28
+     d4a:	f1 1d       	adc	r31, r1
+     d4c:	80 81       	ld	r24, Z
+     d4e:	81 11       	cpse	r24, r1
+     d50:	f7 cf       	rjmp	.-18     	; 0xd40 <CLCD_voidSendString+0xc>
+     d52:	cf 91       	pop	r28
+     d54:	1f 91       	pop	r17
+     d56:	0f 91       	pop	r16
+     d58:	08 95       	ret
+
+00000d5a <CLCD_voidClearDisplay>:
+     d5a:	81 e0       	ldi	r24, 0x01	; 1
+     d5c:	0e 94 b2 05 	call	0xb64	; 0xb64 <CLCD_voidSendCommand>
+     d60:	8f ec       	ldi	r24, 0xCF	; 207
+     d62:	97 e0       	ldi	r25, 0x07	; 7
+     d64:	01 97       	sbiw	r24, 0x01	; 1
+     d66:	f1 f7       	brne	.-4      	; 0xd64 <CLCD_voidClearDisplay+0xa>
+     d68:	00 c0       	rjmp	.+0      	; 0xd6a <CLCD_voidClearDisplay+0x10>
+     d6a:	00 00       	nop
+     d6c:	08 95       	ret
+
+00000d6e <CLCD_voidMoveCursor>:
+     d6e:	90 e4       	ldi	r25, 0x40	; 64
+     d70:	89 9f       	mul	r24, r25
+     d72:	60 0d       	add	r22, r0
+     d74:	11 24       	eor	r1, r1
+     d76:	86 2f       	mov	r24, r22
+     d78:	80 68       	ori	r24, 0x80	; 128
+     d7a:	0e 94 b2 05 	call	0xb64	; 0xb64 <CLCD_voidSendCommand>
+     d7e:	08 95       	ret
+
+00000d80 <CLCD_voidSendNum>:
+     d80:	cf 92       	push	r12
+     d82:	df 92       	push	r13
+     d84:	ef 92       	push	r14
+     d86:	ff 92       	push	r15
+     d88:	0f 93       	push	r16
+     d8a:	1f 93       	push	r17
+     d8c:	cf 93       	push	r28
+     d8e:	df 93       	push	r29
+     d90:	cd b7       	in	r28, 0x3d	; 61
+     d92:	de b7       	in	r29, 0x3e	; 62
+     d94:	2a 97       	sbiw	r28, 0x0a	; 10
+     d96:	0f b6       	in	r0, 0x3f	; 63
+     d98:	f8 94       	cli
+     d9a:	de bf       	out	0x3e, r29	; 62
+     d9c:	0f be       	out	0x3f, r0	; 63
+     d9e:	cd bf       	out	0x3d, r28	; 61
+     da0:	6b 01       	movw	r12, r22
+     da2:	7c 01       	movw	r14, r24
+     da4:	67 2b       	or	r22, r23
+     da6:	68 2b       	or	r22, r24
+     da8:	69 2b       	or	r22, r25
+     daa:	19 f4       	brne	.+6      	; 0xdb2 <CLCD_voidSendNum+0x32>
+     dac:	80 e3       	ldi	r24, 0x30	; 48
+     dae:	0e 94 18 06 	call	0xc30	; 0xc30 <CLCD_voidSendCharacter>
+     db2:	ff 20       	and	r15, r15
+     db4:	54 f4       	brge	.+20     	; 0xdca <CLCD_voidSendNum+0x4a>
+     db6:	f0 94       	com	r15
+     db8:	e0 94       	com	r14
+     dba:	d0 94       	com	r13
+     dbc:	c0 94       	com	r12
+     dbe:	c1 1c       	adc	r12, r1
+     dc0:	d1 1c       	adc	r13, r1
+     dc2:	e1 1c       	adc	r14, r1
+     dc4:	f1 1c       	adc	r15, r1
+     dc6:	01 e0       	ldi	r16, 0x01	; 1
+     dc8:	01 c0       	rjmp	.+2      	; 0xdcc <CLCD_voidSendNum+0x4c>
+     dca:	00 e0       	ldi	r16, 0x00	; 0
+     dcc:	10 e0       	ldi	r17, 0x00	; 0
+     dce:	16 c0       	rjmp	.+44     	; 0xdfc <CLCD_voidSendNum+0x7c>
+     dd0:	c7 01       	movw	r24, r14
+     dd2:	b6 01       	movw	r22, r12
+     dd4:	2a e0       	ldi	r18, 0x0A	; 10
+     dd6:	30 e0       	ldi	r19, 0x00	; 0
+     dd8:	40 e0       	ldi	r20, 0x00	; 0
+     dda:	50 e0       	ldi	r21, 0x00	; 0
+     ddc:	0e 94 f3 0a 	call	0x15e6	; 0x15e6 <__divmodsi4>
+     de0:	e1 e0       	ldi	r30, 0x01	; 1
+     de2:	f0 e0       	ldi	r31, 0x00	; 0
+     de4:	ec 0f       	add	r30, r28
+     de6:	fd 1f       	adc	r31, r29
+     de8:	e1 0f       	add	r30, r17
+     dea:	f1 1d       	adc	r31, r1
+     dec:	17 fd       	sbrc	r17, 7
+     dee:	fa 95       	dec	r31
+     df0:	60 83       	st	Z, r22
+     df2:	c2 2e       	mov	r12, r18
+     df4:	d3 2e       	mov	r13, r19
+     df6:	e4 2e       	mov	r14, r20
+     df8:	f5 2e       	mov	r15, r21
+     dfa:	1f 5f       	subi	r17, 0xFF	; 255
+     dfc:	c1 14       	cp	r12, r1
+     dfe:	d1 04       	cpc	r13, r1
+     e00:	e1 04       	cpc	r14, r1
+     e02:	f1 04       	cpc	r15, r1
+     e04:	29 f7       	brne	.-54     	; 0xdd0 <CLCD_voidSendNum+0x50>
+     e06:	ff 24       	eor	r15, r15
+     e08:	fa 94       	dec	r15
+     e0a:	f1 0e       	add	r15, r17
+     e0c:	01 30       	cpi	r16, 0x01	; 1
+     e0e:	89 f4       	brne	.+34     	; 0xe32 <CLCD_voidSendNum+0xb2>
+     e10:	8d e2       	ldi	r24, 0x2D	; 45
+     e12:	0e 94 18 06 	call	0xc30	; 0xc30 <CLCD_voidSendCharacter>
+     e16:	0d c0       	rjmp	.+26     	; 0xe32 <CLCD_voidSendNum+0xb2>
+     e18:	e1 e0       	ldi	r30, 0x01	; 1
+     e1a:	f0 e0       	ldi	r31, 0x00	; 0
+     e1c:	ec 0f       	add	r30, r28
+     e1e:	fd 1f       	adc	r31, r29
+     e20:	ef 0d       	add	r30, r15
+     e22:	f1 1d       	adc	r31, r1
+     e24:	f7 fc       	sbrc	r15, 7
+     e26:	fa 95       	dec	r31
+     e28:	80 81       	ld	r24, Z
+     e2a:	80 5d       	subi	r24, 0xD0	; 208
+     e2c:	0e 94 18 06 	call	0xc30	; 0xc30 <CLCD_voidSendCharacter>
+     e30:	fa 94       	dec	r15
+     e32:	ff 20       	and	r15, r15
+     e34:	8c f7       	brge	.-30     	; 0xe18 <CLCD_voidSendNum+0x98>
+     e36:	2a 96       	adiw	r28, 0x0a	; 10
+     e38:	0f b6       	in	r0, 0x3f	; 63
+     e3a:	f8 94       	cli
+     e3c:	de bf       	out	0x3e, r29	; 62
+     e3e:	0f be       	out	0x3f, r0	; 63
+     e40:	cd bf       	out	0x3d, r28	; 61
+     e42:	df 91       	pop	r29
+     e44:	cf 91       	pop	r28
+     e46:	1f 91       	pop	r17
+     e48:	0f 91       	pop	r16
+     e4a:	ff 90       	pop	r15
+     e4c:	ef 90       	pop	r14
+     e4e:	df 90       	pop	r13
+     e50:	cf 90       	pop	r12
+     e52:	08 95       	ret
+
+00000e54 <CLCD_voidSendCharPosition>:
+     e54:	cf 93       	push	r28
+     e56:	c8 2f       	mov	r28, r24
+     e58:	86 2f       	mov	r24, r22
+     e5a:	64 2f       	mov	r22, r20
+     e5c:	0e 94 b7 06 	call	0xd6e	; 0xd6e <CLCD_voidMoveCursor>
+     e60:	8c 2f       	mov	r24, r28
+     e62:	0e 94 18 06 	call	0xc30	; 0xc30 <CLCD_voidSendCharacter>
+     e66:	cf 91       	pop	r28
+     e68:	08 95       	ret
+
+00000e6a <CLCD_voidSendStringPosition>:
+     e6a:	cf 93       	push	r28
+     e6c:	df 93       	push	r29
+     e6e:	ec 01       	movw	r28, r24
+     e70:	86 2f       	mov	r24, r22
+     e72:	64 2f       	mov	r22, r20
+     e74:	0e 94 b7 06 	call	0xd6e	; 0xd6e <CLCD_voidMoveCursor>
+     e78:	ce 01       	movw	r24, r28
+     e7a:	0e 94 9a 06 	call	0xd34	; 0xd34 <CLCD_voidSendString>
+     e7e:	df 91       	pop	r29
+     e80:	cf 91       	pop	r28
+     e82:	08 95       	ret
+
+00000e84 <EEPROM_voidWriteByte>:
+     e84:	1f 93       	push	r17
+     e86:	cf 93       	push	r28
+     e88:	df 93       	push	r29
+     e8a:	c8 2f       	mov	r28, r24
+     e8c:	d6 2f       	mov	r29, r22
+     e8e:	17 2f       	mov	r17, r23
+     e90:	0e 94 97 0a 	call	0x152e	; 0x152e <TWI_SendStartCond>
+     e94:	81 2f       	mov	r24, r17
+     e96:	80 65       	ori	r24, 0x50	; 80
+     e98:	0e 94 b1 0a 	call	0x1562	; 0x1562 <TWI_SendSlaveAddressWithWrite>
+     e9c:	8d 2f       	mov	r24, r29
+     e9e:	0e 94 d0 0a 	call	0x15a0	; 0x15a0 <TWI_MasterSendDataWithAck>
+     ea2:	8c 2f       	mov	r24, r28
+     ea4:	0e 94 d0 0a 	call	0x15a0	; 0x15a0 <TWI_MasterSendDataWithAck>
+     ea8:	0e 94 ee 0a 	call	0x15dc	; 0x15dc <TWI_SendStopCond>
+     eac:	8f e1       	ldi	r24, 0x1F	; 31
+     eae:	9e e4       	ldi	r25, 0x4E	; 78
+     eb0:	01 97       	sbiw	r24, 0x01	; 1
+     eb2:	f1 f7       	brne	.-4      	; 0xeb0 <EEPROM_voidWriteByte+0x2c>
+     eb4:	00 c0       	rjmp	.+0      	; 0xeb6 <EEPROM_voidWriteByte+0x32>
+     eb6:	00 00       	nop
+     eb8:	df 91       	pop	r29
+     eba:	cf 91       	pop	r28
+     ebc:	1f 91       	pop	r17
+     ebe:	08 95       	ret
+
+00000ec0 <EEPROM_voidReadByte>:
+     ec0:	0f 93       	push	r16
+     ec2:	1f 93       	push	r17
+     ec4:	cf 93       	push	r28
+     ec6:	df 93       	push	r29
+     ec8:	8c 01       	movw	r16, r24
+     eca:	d6 2f       	mov	r29, r22
+     ecc:	c7 2f       	mov	r28, r23
+     ece:	0e 94 97 0a 	call	0x152e	; 0x152e <TWI_SendStartCond>
+     ed2:	c0 65       	ori	r28, 0x50	; 80
+     ed4:	8c 2f       	mov	r24, r28
+     ed6:	0e 94 b1 0a 	call	0x1562	; 0x1562 <TWI_SendSlaveAddressWithWrite>
+     eda:	8d 2f       	mov	r24, r29
+     edc:	0e 94 d0 0a 	call	0x15a0	; 0x15a0 <TWI_MasterSendDataWithAck>
+     ee0:	0e 94 a4 0a 	call	0x1548	; 0x1548 <TWI_SendRepeatedStartCond>
+     ee4:	8c 2f       	mov	r24, r28
+     ee6:	0e 94 c0 0a 	call	0x1580	; 0x1580 <TWI_SendSlaveAddressWithRead>
+     eea:	c8 01       	movw	r24, r16
+     eec:	0e 94 de 0a 	call	0x15bc	; 0x15bc <TWI_MasterReceiveDataWithNack>
+     ef0:	0e 94 ee 0a 	call	0x15dc	; 0x15dc <TWI_SendStopCond>
+     ef4:	8f e1       	ldi	r24, 0x1F	; 31
+     ef6:	9e e4       	ldi	r25, 0x4E	; 78
+     ef8:	01 97       	sbiw	r24, 0x01	; 1
+     efa:	f1 f7       	brne	.-4      	; 0xef8 <EEPROM_voidReadByte+0x38>
+     efc:	00 c0       	rjmp	.+0      	; 0xefe <EEPROM_voidReadByte+0x3e>
+     efe:	00 00       	nop
+     f00:	df 91       	pop	r29
+     f02:	cf 91       	pop	r28
+     f04:	1f 91       	pop	r17
+     f06:	0f 91       	pop	r16
+     f08:	08 95       	ret
+
+00000f0a <KPD_voidInit>:
+     f0a:	6f ef       	ldi	r22, 0xFF	; 255
+     f0c:	84 e0       	ldi	r24, 0x04	; 4
+     f0e:	0e 94 9e 08 	call	0x113c	; 0x113c <DIO_u8SetPortValue>
+     f12:	08 95       	ret
+
+00000f14 <KPD_u8GetPressedKey>:
+     f14:	ef 92       	push	r14
+     f16:	ff 92       	push	r15
+     f18:	0f 93       	push	r16
+     f1a:	1f 93       	push	r17
+     f1c:	cf 93       	push	r28
+     f1e:	df 93       	push	r29
+     f20:	cd b7       	in	r28, 0x3d	; 61
+     f22:	de b7       	in	r29, 0x3e	; 62
+     f24:	61 97       	sbiw	r28, 0x11	; 17
+     f26:	0f b6       	in	r0, 0x3f	; 63
+     f28:	f8 94       	cli
+     f2a:	de bf       	out	0x3e, r29	; 62
+     f2c:	0f be       	out	0x3f, r0	; 63
+     f2e:	cd bf       	out	0x3d, r28	; 61
+     f30:	80 e1       	ldi	r24, 0x10	; 16
+     f32:	e2 e6       	ldi	r30, 0x62	; 98
+     f34:	f0 e0       	ldi	r31, 0x00	; 0
+     f36:	de 01       	movw	r26, r28
+     f38:	11 96       	adiw	r26, 0x01	; 1
+     f3a:	01 90       	ld	r0, Z+
+     f3c:	0d 92       	st	X+, r0
+     f3e:	8a 95       	dec	r24
+     f40:	e1 f7       	brne	.-8      	; 0xf3a <KPD_u8GetPressedKey+0x26>
+     f42:	f1 2c       	mov	r15, r1
+     f44:	ee 24       	eor	r14, r14
+     f46:	ea 94       	dec	r14
+     f48:	3c c0       	rjmp	.+120    	; 0xfc2 <KPD_u8GetPressedKey+0xae>
+     f4a:	40 e0       	ldi	r20, 0x00	; 0
+     f4c:	6f 2d       	mov	r22, r15
+     f4e:	84 e0       	ldi	r24, 0x04	; 4
+     f50:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     f54:	00 e0       	ldi	r16, 0x00	; 0
+     f56:	2d c0       	rjmp	.+90     	; 0xfb2 <KPD_u8GetPressedKey+0x9e>
+     f58:	14 e0       	ldi	r17, 0x04	; 4
+     f5a:	10 0f       	add	r17, r16
+     f5c:	ae 01       	movw	r20, r28
+     f5e:	4f 5e       	subi	r20, 0xEF	; 239
+     f60:	5f 4f       	sbci	r21, 0xFF	; 255
+     f62:	61 2f       	mov	r22, r17
+     f64:	84 e0       	ldi	r24, 0x04	; 4
+     f66:	0e 94 b7 08 	call	0x116e	; 0x116e <DIO_u8GetPinValue>
+     f6a:	89 89       	ldd	r24, Y+17	; 0x11
+     f6c:	81 11       	cpse	r24, r1
+     f6e:	20 c0       	rjmp	.+64     	; 0xfb0 <KPD_u8GetPressedKey+0x9c>
+     f70:	e0 2f       	mov	r30, r16
+     f72:	f0 e0       	ldi	r31, 0x00	; 0
+     f74:	ee 0f       	add	r30, r30
+     f76:	ff 1f       	adc	r31, r31
+     f78:	ee 0f       	add	r30, r30
+     f7a:	ff 1f       	adc	r31, r31
+     f7c:	81 e0       	ldi	r24, 0x01	; 1
+     f7e:	90 e0       	ldi	r25, 0x00	; 0
+     f80:	8c 0f       	add	r24, r28
+     f82:	9d 1f       	adc	r25, r29
+     f84:	e8 0f       	add	r30, r24
+     f86:	f9 1f       	adc	r31, r25
+     f88:	ef 0d       	add	r30, r15
+     f8a:	f1 1d       	adc	r31, r1
+     f8c:	e0 80       	ld	r14, Z
+     f8e:	8f e6       	ldi	r24, 0x6F	; 111
+     f90:	97 e1       	ldi	r25, 0x17	; 23
+     f92:	01 97       	sbiw	r24, 0x01	; 1
+     f94:	f1 f7       	brne	.-4      	; 0xf92 <KPD_u8GetPressedKey+0x7e>
+     f96:	00 c0       	rjmp	.+0      	; 0xf98 <KPD_u8GetPressedKey+0x84>
+     f98:	00 00       	nop
+     f9a:	07 c0       	rjmp	.+14     	; 0xfaa <KPD_u8GetPressedKey+0x96>
+     f9c:	ae 01       	movw	r20, r28
+     f9e:	4f 5e       	subi	r20, 0xEF	; 239
+     fa0:	5f 4f       	sbci	r21, 0xFF	; 255
+     fa2:	61 2f       	mov	r22, r17
+     fa4:	84 e0       	ldi	r24, 0x04	; 4
+     fa6:	0e 94 b7 08 	call	0x116e	; 0x116e <DIO_u8GetPinValue>
+     faa:	89 89       	ldd	r24, Y+17	; 0x11
+     fac:	88 23       	and	r24, r24
+     fae:	b1 f3       	breq	.-20     	; 0xf9c <KPD_u8GetPressedKey+0x88>
+     fb0:	0f 5f       	subi	r16, 0xFF	; 255
+     fb2:	04 30       	cpi	r16, 0x04	; 4
+     fb4:	88 f2       	brcs	.-94     	; 0xf58 <KPD_u8GetPressedKey+0x44>
+     fb6:	41 e0       	ldi	r20, 0x01	; 1
+     fb8:	6f 2d       	mov	r22, r15
+     fba:	84 e0       	ldi	r24, 0x04	; 4
+     fbc:	0e 94 14 08 	call	0x1028	; 0x1028 <DIO_u8SetPinValue>
+     fc0:	f3 94       	inc	r15
+     fc2:	93 e0       	ldi	r25, 0x03	; 3
+     fc4:	9f 15       	cp	r25, r15
+     fc6:	08 f6       	brcc	.-126    	; 0xf4a <KPD_u8GetPressedKey+0x36>
+     fc8:	8e 2d       	mov	r24, r14
+     fca:	61 96       	adiw	r28, 0x11	; 17
+     fcc:	0f b6       	in	r0, 0x3f	; 63
+     fce:	f8 94       	cli
+     fd0:	de bf       	out	0x3e, r29	; 62
+     fd2:	0f be       	out	0x3f, r0	; 63
+     fd4:	cd bf       	out	0x3d, r28	; 61
+     fd6:	df 91       	pop	r29
+     fd8:	cf 91       	pop	r28
+     fda:	1f 91       	pop	r17
+     fdc:	0f 91       	pop	r16
+     fde:	ff 90       	pop	r15
+     fe0:	ef 90       	pop	r14
+     fe2:	08 95       	ret
+
+00000fe4 <ADC_voidInit>:
+     fe4:	87 b1       	in	r24, 0x07	; 7
+     fe6:	80 64       	ori	r24, 0x40	; 64
+     fe8:	87 b9       	out	0x07, r24	; 7
+     fea:	87 b1       	in	r24, 0x07	; 7
+     fec:	8f 77       	andi	r24, 0x7F	; 127
+     fee:	87 b9       	out	0x07, r24	; 7
+     ff0:	87 b1       	in	r24, 0x07	; 7
+     ff2:	8f 7d       	andi	r24, 0xDF	; 223
+     ff4:	87 b9       	out	0x07, r24	; 7
+     ff6:	86 b1       	in	r24, 0x06	; 6
+     ff8:	88 7f       	andi	r24, 0xF8	; 248
+     ffa:	86 b9       	out	0x06, r24	; 6
+     ffc:	86 b1       	in	r24, 0x06	; 6
+     ffe:	83 60       	ori	r24, 0x03	; 3
+    1000:	86 b9       	out	0x06, r24	; 6
+    1002:	86 b1       	in	r24, 0x06	; 6
+    1004:	80 68       	ori	r24, 0x80	; 128
+    1006:	86 b9       	out	0x06, r24	; 6
+    1008:	08 95       	ret
+
+0000100a <DIO_voidInit>:
+    100a:	8f ef       	ldi	r24, 0xFF	; 255
+    100c:	8a bb       	out	0x1a, r24	; 26
+    100e:	8f eb       	ldi	r24, 0xBF	; 191
+    1010:	87 bb       	out	0x17, r24	; 23
+    1012:	8c ef       	ldi	r24, 0xFC	; 252
+    1014:	84 bb       	out	0x14, r24	; 20
+    1016:	8f e0       	ldi	r24, 0x0F	; 15
+    1018:	81 bb       	out	0x11, r24	; 17
+    101a:	1b ba       	out	0x1b, r1	; 27
+    101c:	18 ba       	out	0x18, r1	; 24
+    101e:	83 e0       	ldi	r24, 0x03	; 3
+    1020:	85 bb       	out	0x15, r24	; 21
+    1022:	80 ef       	ldi	r24, 0xF0	; 240
+    1024:	82 bb       	out	0x12, r24	; 18
+    1026:	08 95       	ret
+
+00001028 <DIO_u8SetPinValue>:
+    1028:	68 30       	cpi	r22, 0x08	; 8
+    102a:	08 f0       	brcs	.+2      	; 0x102e <DIO_u8SetPinValue+0x6>
+    102c:	7f c0       	rjmp	.+254    	; 0x112c <DIO_u8SetPinValue+0x104>
+    102e:	41 11       	cpse	r20, r1
+    1030:	3f c0       	rjmp	.+126    	; 0x10b0 <DIO_u8SetPinValue+0x88>
+    1032:	82 30       	cpi	r24, 0x02	; 2
+    1034:	b1 f0       	breq	.+44     	; 0x1062 <DIO_u8SetPinValue+0x3a>
+    1036:	18 f4       	brcc	.+6      	; 0x103e <DIO_u8SetPinValue+0x16>
+    1038:	81 30       	cpi	r24, 0x01	; 1
+    103a:	31 f0       	breq	.+12     	; 0x1048 <DIO_u8SetPinValue+0x20>
+    103c:	79 c0       	rjmp	.+242    	; 0x1130 <DIO_u8SetPinValue+0x108>
+    103e:	83 30       	cpi	r24, 0x03	; 3
+    1040:	e9 f0       	breq	.+58     	; 0x107c <DIO_u8SetPinValue+0x54>
+    1042:	84 30       	cpi	r24, 0x04	; 4
+    1044:	41 f1       	breq	.+80     	; 0x1096 <DIO_u8SetPinValue+0x6e>
+    1046:	74 c0       	rjmp	.+232    	; 0x1130 <DIO_u8SetPinValue+0x108>
+    1048:	2b b3       	in	r18, 0x1b	; 27
+    104a:	81 e0       	ldi	r24, 0x01	; 1
+    104c:	90 e0       	ldi	r25, 0x00	; 0
+    104e:	02 c0       	rjmp	.+4      	; 0x1054 <DIO_u8SetPinValue+0x2c>
+    1050:	88 0f       	add	r24, r24
+    1052:	99 1f       	adc	r25, r25
+    1054:	6a 95       	dec	r22
+    1056:	e2 f7       	brpl	.-8      	; 0x1050 <DIO_u8SetPinValue+0x28>
+    1058:	80 95       	com	r24
+    105a:	82 23       	and	r24, r18
+    105c:	8b bb       	out	0x1b, r24	; 27
+    105e:	80 e0       	ldi	r24, 0x00	; 0
+    1060:	08 95       	ret
+    1062:	28 b3       	in	r18, 0x18	; 24
+    1064:	81 e0       	ldi	r24, 0x01	; 1
+    1066:	90 e0       	ldi	r25, 0x00	; 0
+    1068:	02 c0       	rjmp	.+4      	; 0x106e <DIO_u8SetPinValue+0x46>
+    106a:	88 0f       	add	r24, r24
+    106c:	99 1f       	adc	r25, r25
+    106e:	6a 95       	dec	r22
+    1070:	e2 f7       	brpl	.-8      	; 0x106a <DIO_u8SetPinValue+0x42>
+    1072:	80 95       	com	r24
+    1074:	82 23       	and	r24, r18
+    1076:	88 bb       	out	0x18, r24	; 24
+    1078:	80 e0       	ldi	r24, 0x00	; 0
+    107a:	08 95       	ret
+    107c:	25 b3       	in	r18, 0x15	; 21
+    107e:	81 e0       	ldi	r24, 0x01	; 1
+    1080:	90 e0       	ldi	r25, 0x00	; 0
+    1082:	02 c0       	rjmp	.+4      	; 0x1088 <DIO_u8SetPinValue+0x60>
+    1084:	88 0f       	add	r24, r24
+    1086:	99 1f       	adc	r25, r25
+    1088:	6a 95       	dec	r22
+    108a:	e2 f7       	brpl	.-8      	; 0x1084 <DIO_u8SetPinValue+0x5c>
+    108c:	80 95       	com	r24
+    108e:	82 23       	and	r24, r18
+    1090:	85 bb       	out	0x15, r24	; 21
+    1092:	80 e0       	ldi	r24, 0x00	; 0
+    1094:	08 95       	ret
+    1096:	22 b3       	in	r18, 0x12	; 18
+    1098:	81 e0       	ldi	r24, 0x01	; 1
+    109a:	90 e0       	ldi	r25, 0x00	; 0
+    109c:	02 c0       	rjmp	.+4      	; 0x10a2 <DIO_u8SetPinValue+0x7a>
+    109e:	88 0f       	add	r24, r24
+    10a0:	99 1f       	adc	r25, r25
+    10a2:	6a 95       	dec	r22
+    10a4:	e2 f7       	brpl	.-8      	; 0x109e <DIO_u8SetPinValue+0x76>
+    10a6:	80 95       	com	r24
+    10a8:	82 23       	and	r24, r18
+    10aa:	82 bb       	out	0x12, r24	; 18
+    10ac:	80 e0       	ldi	r24, 0x00	; 0
+    10ae:	08 95       	ret
+    10b0:	41 30       	cpi	r20, 0x01	; 1
+    10b2:	09 f0       	breq	.+2      	; 0x10b6 <DIO_u8SetPinValue+0x8e>
+    10b4:	3f c0       	rjmp	.+126    	; 0x1134 <DIO_u8SetPinValue+0x10c>
+    10b6:	82 30       	cpi	r24, 0x02	; 2
+    10b8:	a9 f0       	breq	.+42     	; 0x10e4 <DIO_u8SetPinValue+0xbc>
+    10ba:	18 f4       	brcc	.+6      	; 0x10c2 <DIO_u8SetPinValue+0x9a>
+    10bc:	81 30       	cpi	r24, 0x01	; 1
+    10be:	31 f0       	breq	.+12     	; 0x10cc <DIO_u8SetPinValue+0xa4>
+    10c0:	3b c0       	rjmp	.+118    	; 0x1138 <DIO_u8SetPinValue+0x110>
+    10c2:	83 30       	cpi	r24, 0x03	; 3
+    10c4:	d9 f0       	breq	.+54     	; 0x10fc <DIO_u8SetPinValue+0xd4>
+    10c6:	84 30       	cpi	r24, 0x04	; 4
+    10c8:	29 f1       	breq	.+74     	; 0x1114 <DIO_u8SetPinValue+0xec>
+    10ca:	36 c0       	rjmp	.+108    	; 0x1138 <DIO_u8SetPinValue+0x110>
+    10cc:	2b b3       	in	r18, 0x1b	; 27
+    10ce:	81 e0       	ldi	r24, 0x01	; 1
+    10d0:	90 e0       	ldi	r25, 0x00	; 0
+    10d2:	02 c0       	rjmp	.+4      	; 0x10d8 <DIO_u8SetPinValue+0xb0>
+    10d4:	88 0f       	add	r24, r24
+    10d6:	99 1f       	adc	r25, r25
+    10d8:	6a 95       	dec	r22
+    10da:	e2 f7       	brpl	.-8      	; 0x10d4 <DIO_u8SetPinValue+0xac>
+    10dc:	82 2b       	or	r24, r18
+    10de:	8b bb       	out	0x1b, r24	; 27
+    10e0:	80 e0       	ldi	r24, 0x00	; 0
+    10e2:	08 95       	ret
+    10e4:	28 b3       	in	r18, 0x18	; 24
+    10e6:	81 e0       	ldi	r24, 0x01	; 1
+    10e8:	90 e0       	ldi	r25, 0x00	; 0
+    10ea:	02 c0       	rjmp	.+4      	; 0x10f0 <DIO_u8SetPinValue+0xc8>
+    10ec:	88 0f       	add	r24, r24
+    10ee:	99 1f       	adc	r25, r25
+    10f0:	6a 95       	dec	r22
+    10f2:	e2 f7       	brpl	.-8      	; 0x10ec <DIO_u8SetPinValue+0xc4>
+    10f4:	82 2b       	or	r24, r18
+    10f6:	88 bb       	out	0x18, r24	; 24
+    10f8:	80 e0       	ldi	r24, 0x00	; 0
+    10fa:	08 95       	ret
+    10fc:	25 b3       	in	r18, 0x15	; 21
+    10fe:	81 e0       	ldi	r24, 0x01	; 1
+    1100:	90 e0       	ldi	r25, 0x00	; 0
+    1102:	02 c0       	rjmp	.+4      	; 0x1108 <DIO_u8SetPinValue+0xe0>
+    1104:	88 0f       	add	r24, r24
+    1106:	99 1f       	adc	r25, r25
+    1108:	6a 95       	dec	r22
+    110a:	e2 f7       	brpl	.-8      	; 0x1104 <DIO_u8SetPinValue+0xdc>
+    110c:	82 2b       	or	r24, r18
+    110e:	85 bb       	out	0x15, r24	; 21
+    1110:	80 e0       	ldi	r24, 0x00	; 0
+    1112:	08 95       	ret
+    1114:	22 b3       	in	r18, 0x12	; 18
+    1116:	81 e0       	ldi	r24, 0x01	; 1
+    1118:	90 e0       	ldi	r25, 0x00	; 0
+    111a:	02 c0       	rjmp	.+4      	; 0x1120 <DIO_u8SetPinValue+0xf8>
+    111c:	88 0f       	add	r24, r24
+    111e:	99 1f       	adc	r25, r25
+    1120:	6a 95       	dec	r22
+    1122:	e2 f7       	brpl	.-8      	; 0x111c <DIO_u8SetPinValue+0xf4>
+    1124:	82 2b       	or	r24, r18
+    1126:	82 bb       	out	0x12, r24	; 18
+    1128:	80 e0       	ldi	r24, 0x00	; 0
+    112a:	08 95       	ret
+    112c:	81 e0       	ldi	r24, 0x01	; 1
+    112e:	08 95       	ret
+    1130:	81 e0       	ldi	r24, 0x01	; 1
+    1132:	08 95       	ret
+    1134:	81 e0       	ldi	r24, 0x01	; 1
+    1136:	08 95       	ret
+    1138:	81 e0       	ldi	r24, 0x01	; 1
+    113a:	08 95       	ret
+
+0000113c <DIO_u8SetPortValue>:
+    113c:	82 30       	cpi	r24, 0x02	; 2
+    113e:	61 f0       	breq	.+24     	; 0x1158 <DIO_u8SetPortValue+0x1c>
+    1140:	18 f4       	brcc	.+6      	; 0x1148 <DIO_u8SetPortValue+0xc>
+    1142:	81 30       	cpi	r24, 0x01	; 1
+    1144:	31 f0       	breq	.+12     	; 0x1152 <DIO_u8SetPortValue+0x16>
+    1146:	11 c0       	rjmp	.+34     	; 0x116a <DIO_u8SetPortValue+0x2e>
+    1148:	83 30       	cpi	r24, 0x03	; 3
+    114a:	49 f0       	breq	.+18     	; 0x115e <DIO_u8SetPortValue+0x22>
+    114c:	84 30       	cpi	r24, 0x04	; 4
+    114e:	51 f0       	breq	.+20     	; 0x1164 <DIO_u8SetPortValue+0x28>
+    1150:	0c c0       	rjmp	.+24     	; 0x116a <DIO_u8SetPortValue+0x2e>
+    1152:	6b bb       	out	0x1b, r22	; 27
+    1154:	80 e0       	ldi	r24, 0x00	; 0
+    1156:	08 95       	ret
+    1158:	68 bb       	out	0x18, r22	; 24
+    115a:	80 e0       	ldi	r24, 0x00	; 0
+    115c:	08 95       	ret
+    115e:	65 bb       	out	0x15, r22	; 21
+    1160:	80 e0       	ldi	r24, 0x00	; 0
+    1162:	08 95       	ret
+    1164:	62 bb       	out	0x12, r22	; 18
+    1166:	80 e0       	ldi	r24, 0x00	; 0
+    1168:	08 95       	ret
+    116a:	81 e0       	ldi	r24, 0x01	; 1
+    116c:	08 95       	ret
+
+0000116e <DIO_u8GetPinValue>:
+    116e:	68 30       	cpi	r22, 0x08	; 8
+    1170:	f0 f5       	brcc	.+124    	; 0x11ee <DIO_u8GetPinValue+0x80>
+    1172:	41 15       	cp	r20, r1
+    1174:	51 05       	cpc	r21, r1
+    1176:	e9 f1       	breq	.+122    	; 0x11f2 <DIO_u8GetPinValue+0x84>
+    1178:	82 30       	cpi	r24, 0x02	; 2
+    117a:	a9 f0       	breq	.+42     	; 0x11a6 <DIO_u8GetPinValue+0x38>
+    117c:	18 f4       	brcc	.+6      	; 0x1184 <DIO_u8GetPinValue+0x16>
+    117e:	81 30       	cpi	r24, 0x01	; 1
+    1180:	31 f0       	breq	.+12     	; 0x118e <DIO_u8GetPinValue+0x20>
+    1182:	39 c0       	rjmp	.+114    	; 0x11f6 <DIO_u8GetPinValue+0x88>
+    1184:	83 30       	cpi	r24, 0x03	; 3
+    1186:	d9 f0       	breq	.+54     	; 0x11be <DIO_u8GetPinValue+0x50>
+    1188:	84 30       	cpi	r24, 0x04	; 4
+    118a:	29 f1       	breq	.+74     	; 0x11d6 <DIO_u8GetPinValue+0x68>
+    118c:	34 c0       	rjmp	.+104    	; 0x11f6 <DIO_u8GetPinValue+0x88>
+    118e:	89 b3       	in	r24, 0x19	; 25
+    1190:	90 e0       	ldi	r25, 0x00	; 0
+    1192:	02 c0       	rjmp	.+4      	; 0x1198 <DIO_u8GetPinValue+0x2a>
+    1194:	95 95       	asr	r25
+    1196:	87 95       	ror	r24
+    1198:	6a 95       	dec	r22
+    119a:	e2 f7       	brpl	.-8      	; 0x1194 <DIO_u8GetPinValue+0x26>
+    119c:	81 70       	andi	r24, 0x01	; 1
+    119e:	fa 01       	movw	r30, r20
+    11a0:	80 83       	st	Z, r24
+    11a2:	80 e0       	ldi	r24, 0x00	; 0
+    11a4:	08 95       	ret
+    11a6:	86 b3       	in	r24, 0x16	; 22
+    11a8:	90 e0       	ldi	r25, 0x00	; 0
+    11aa:	02 c0       	rjmp	.+4      	; 0x11b0 <DIO_u8GetPinValue+0x42>
+    11ac:	95 95       	asr	r25
+    11ae:	87 95       	ror	r24
+    11b0:	6a 95       	dec	r22
+    11b2:	e2 f7       	brpl	.-8      	; 0x11ac <DIO_u8GetPinValue+0x3e>
+    11b4:	81 70       	andi	r24, 0x01	; 1
+    11b6:	fa 01       	movw	r30, r20
+    11b8:	80 83       	st	Z, r24
+    11ba:	80 e0       	ldi	r24, 0x00	; 0
+    11bc:	08 95       	ret
+    11be:	83 b3       	in	r24, 0x13	; 19
+    11c0:	90 e0       	ldi	r25, 0x00	; 0
+    11c2:	02 c0       	rjmp	.+4      	; 0x11c8 <DIO_u8GetPinValue+0x5a>
+    11c4:	95 95       	asr	r25
+    11c6:	87 95       	ror	r24
+    11c8:	6a 95       	dec	r22
+    11ca:	e2 f7       	brpl	.-8      	; 0x11c4 <DIO_u8GetPinValue+0x56>
+    11cc:	81 70       	andi	r24, 0x01	; 1
+    11ce:	fa 01       	movw	r30, r20
+    11d0:	80 83       	st	Z, r24
+    11d2:	80 e0       	ldi	r24, 0x00	; 0
+    11d4:	08 95       	ret
+    11d6:	80 b3       	in	r24, 0x10	; 16
+    11d8:	90 e0       	ldi	r25, 0x00	; 0
+    11da:	02 c0       	rjmp	.+4      	; 0x11e0 <DIO_u8GetPinValue+0x72>
+    11dc:	95 95       	asr	r25
+    11de:	87 95       	ror	r24
+    11e0:	6a 95       	dec	r22
+    11e2:	e2 f7       	brpl	.-8      	; 0x11dc <DIO_u8GetPinValue+0x6e>
+    11e4:	81 70       	andi	r24, 0x01	; 1
+    11e6:	fa 01       	movw	r30, r20
+    11e8:	80 83       	st	Z, r24
+    11ea:	80 e0       	ldi	r24, 0x00	; 0
+    11ec:	08 95       	ret
+    11ee:	81 e0       	ldi	r24, 0x01	; 1
+    11f0:	08 95       	ret
+    11f2:	81 e0       	ldi	r24, 0x01	; 1
+    11f4:	08 95       	ret
+    11f6:	81 e0       	ldi	r24, 0x01	; 1
+    11f8:	08 95       	ret
+
+000011fa <__vector_1>:
+    11fa:	1f 92       	push	r1
+    11fc:	0f 92       	push	r0
+    11fe:	0f b6       	in	r0, 0x3f	; 63
+    1200:	0f 92       	push	r0
+    1202:	11 24       	eor	r1, r1
+    1204:	2f 93       	push	r18
+    1206:	3f 93       	push	r19
+    1208:	4f 93       	push	r20
+    120a:	5f 93       	push	r21
+    120c:	6f 93       	push	r22
+    120e:	7f 93       	push	r23
+    1210:	8f 93       	push	r24
+    1212:	9f 93       	push	r25
+    1214:	af 93       	push	r26
+    1216:	bf 93       	push	r27
+    1218:	ef 93       	push	r30
+    121a:	ff 93       	push	r31
+    121c:	e0 91 1b 02 	lds	r30, 0x021B	; 0x80021b <EXTI0_pvCallBack>
+    1220:	f0 91 1c 02 	lds	r31, 0x021C	; 0x80021c <EXTI0_pvCallBack+0x1>
+    1224:	30 97       	sbiw	r30, 0x00	; 0
+    1226:	09 f0       	breq	.+2      	; 0x122a <__vector_1+0x30>
+    1228:	09 95       	icall
+    122a:	ff 91       	pop	r31
+    122c:	ef 91       	pop	r30
+    122e:	bf 91       	pop	r27
+    1230:	af 91       	pop	r26
+    1232:	9f 91       	pop	r25
+    1234:	8f 91       	pop	r24
+    1236:	7f 91       	pop	r23
+    1238:	6f 91       	pop	r22
+    123a:	5f 91       	pop	r21
+    123c:	4f 91       	pop	r20
+    123e:	3f 91       	pop	r19
+    1240:	2f 91       	pop	r18
+    1242:	0f 90       	pop	r0
+    1244:	0f be       	out	0x3f, r0	; 63
+    1246:	0f 90       	pop	r0
+    1248:	1f 90       	pop	r1
+    124a:	18 95       	reti
+
+0000124c <SPI_voidInit>:
+    124c:	8d b1       	in	r24, 0x0d	; 13
+    124e:	80 61       	ori	r24, 0x10	; 16
+    1250:	8d b9       	out	0x0d, r24	; 13
+    1252:	8d b1       	in	r24, 0x0d	; 13
+    1254:	81 60       	ori	r24, 0x01	; 1
+    1256:	8d b9       	out	0x0d, r24	; 13
+    1258:	8d b1       	in	r24, 0x0d	; 13
+    125a:	8d 7f       	andi	r24, 0xFD	; 253
+    125c:	8d b9       	out	0x0d, r24	; 13
+    125e:	8e b1       	in	r24, 0x0e	; 14
+    1260:	8e 7f       	andi	r24, 0xFE	; 254
+    1262:	8e b9       	out	0x0e, r24	; 14
+    1264:	8d b1       	in	r24, 0x0d	; 13
+    1266:	80 64       	ori	r24, 0x40	; 64
+    1268:	8d b9       	out	0x0d, r24	; 13
+    126a:	08 95       	ret
+
+0000126c <SPI_u8Transreceive>:
+    126c:	8f b9       	out	0x0f, r24	; 15
+    126e:	77 9b       	sbis	0x0e, 7	; 14
+    1270:	fe cf       	rjmp	.-4      	; 0x126e <SPI_u8Transreceive+0x2>
+    1272:	8f b1       	in	r24, 0x0f	; 15
+    1274:	08 95       	ret
+
+00001276 <__vector_11>:
+
+
+/* Normal Mode ISR */
+void __vector_11(void)__attribute__((signal));
+
+void __vector_11(void){
+    1276:	1f 92       	push	r1
+    1278:	0f 92       	push	r0
+    127a:	0f b6       	in	r0, 0x3f	; 63
+    127c:	0f 92       	push	r0
+    127e:	11 24       	eor	r1, r1
+    1280:	2f 93       	push	r18
+    1282:	3f 93       	push	r19
+    1284:	4f 93       	push	r20
+    1286:	5f 93       	push	r21
+    1288:	6f 93       	push	r22
+    128a:	7f 93       	push	r23
+    128c:	8f 93       	push	r24
+    128e:	9f 93       	push	r25
+    1290:	af 93       	push	r26
+    1292:	bf 93       	push	r27
+    1294:	ef 93       	push	r30
+    1296:	ff 93       	push	r31
+	static u16 LS_Iterator=0;
+
+	if(LS_Iterator == G_u16OvfCounts)
+    1298:	20 91 1f 02 	lds	r18, 0x021F	; 0x80021f <LS_Iterator.1688>
+    129c:	30 91 20 02 	lds	r19, 0x0220	; 0x800220 <LS_Iterator.1688+0x1>
+    12a0:	80 91 34 02 	lds	r24, 0x0234	; 0x800234 <G_u16OvfCounts>
+    12a4:	90 91 35 02 	lds	r25, 0x0235	; 0x800235 <G_u16OvfCounts+0x1>
+    12a8:	28 17       	cp	r18, r24
+    12aa:	39 07       	cpc	r19, r25
+    12ac:	59 f4       	brne	.+22     	; 0x12c4 <__vector_11+0x4e>
+	{
+		if(GlobalOvPtrFunc != NULL)
+    12ae:	e0 91 23 02 	lds	r30, 0x0223	; 0x800223 <GlobalOvPtrFunc>
+    12b2:	f0 91 24 02 	lds	r31, 0x0224	; 0x800224 <GlobalOvPtrFunc+0x1>
+    12b6:	30 97       	sbiw	r30, 0x00	; 0
+    12b8:	29 f0       	breq	.+10     	; 0x12c4 <__vector_11+0x4e>
+		{
+			GlobalOvPtrFunc();
+    12ba:	09 95       	icall
+			LS_Iterator = 0;
+    12bc:	10 92 20 02 	sts	0x0220, r1	; 0x800220 <LS_Iterator.1688+0x1>
+    12c0:	10 92 1f 02 	sts	0x021F, r1	; 0x80021f <LS_Iterator.1688>
+		}
+	}
+	LS_Iterator++;
+    12c4:	80 91 1f 02 	lds	r24, 0x021F	; 0x80021f <LS_Iterator.1688>
+    12c8:	90 91 20 02 	lds	r25, 0x0220	; 0x800220 <LS_Iterator.1688+0x1>
+    12cc:	01 96       	adiw	r24, 0x01	; 1
+    12ce:	90 93 20 02 	sts	0x0220, r25	; 0x800220 <LS_Iterator.1688+0x1>
+    12d2:	80 93 1f 02 	sts	0x021F, r24	; 0x80021f <LS_Iterator.1688>
+}
+    12d6:	ff 91       	pop	r31
+    12d8:	ef 91       	pop	r30
+    12da:	bf 91       	pop	r27
+    12dc:	af 91       	pop	r26
+    12de:	9f 91       	pop	r25
+    12e0:	8f 91       	pop	r24
+    12e2:	7f 91       	pop	r23
+    12e4:	6f 91       	pop	r22
+    12e6:	5f 91       	pop	r21
+    12e8:	4f 91       	pop	r20
+    12ea:	3f 91       	pop	r19
+    12ec:	2f 91       	pop	r18
+    12ee:	0f 90       	pop	r0
+    12f0:	0f be       	out	0x3f, r0	; 63
+    12f2:	0f 90       	pop	r0
+    12f4:	1f 90       	pop	r1
+    12f6:	18 95       	reti
+
+000012f8 <__vector_10>:
+
+
+/* CTC ISR */
+void __vector_10(void)__attribute__((signal));
+
+void __vector_10(void){
+    12f8:	1f 92       	push	r1
+    12fa:	0f 92       	push	r0
+    12fc:	0f b6       	in	r0, 0x3f	; 63
+    12fe:	0f 92       	push	r0
+    1300:	11 24       	eor	r1, r1
+    1302:	2f 93       	push	r18
+    1304:	3f 93       	push	r19
+    1306:	4f 93       	push	r20
+    1308:	5f 93       	push	r21
+    130a:	6f 93       	push	r22
+    130c:	7f 93       	push	r23
+    130e:	8f 93       	push	r24
+    1310:	9f 93       	push	r25
+    1312:	af 93       	push	r26
+    1314:	bf 93       	push	r27
+    1316:	ef 93       	push	r30
+    1318:	ff 93       	push	r31
+	static u16 LS_Iterator=0;
+
+	if(LS_Iterator == G_u16CtcCounts)
+    131a:	20 91 1d 02 	lds	r18, 0x021D	; 0x80021d <LS_Iterator.1694>
+    131e:	30 91 1e 02 	lds	r19, 0x021E	; 0x80021e <LS_Iterator.1694+0x1>
+    1322:	80 91 32 02 	lds	r24, 0x0232	; 0x800232 <G_u16CtcCounts>
+    1326:	90 91 33 02 	lds	r25, 0x0233	; 0x800233 <G_u16CtcCounts+0x1>
+    132a:	28 17       	cp	r18, r24
+    132c:	39 07       	cpc	r19, r25
+    132e:	59 f4       	brne	.+22     	; 0x1346 <__vector_10+0x4e>
+	{
+		if(GlobalCtcPtrFunc != NULL)
+    1330:	e0 91 21 02 	lds	r30, 0x0221	; 0x800221 <GlobalCtcPtrFunc>
+    1334:	f0 91 22 02 	lds	r31, 0x0222	; 0x800222 <GlobalCtcPtrFunc+0x1>
+    1338:	30 97       	sbiw	r30, 0x00	; 0
+    133a:	29 f0       	breq	.+10     	; 0x1346 <__vector_10+0x4e>
+		{
+			GlobalCtcPtrFunc();
+    133c:	09 95       	icall
+			LS_Iterator = 0;
+    133e:	10 92 1e 02 	sts	0x021E, r1	; 0x80021e <LS_Iterator.1694+0x1>
+    1342:	10 92 1d 02 	sts	0x021D, r1	; 0x80021d <LS_Iterator.1694>
+		}
+	}
+	LS_Iterator++;
+    1346:	80 91 1d 02 	lds	r24, 0x021D	; 0x80021d <LS_Iterator.1694>
+    134a:	90 91 1e 02 	lds	r25, 0x021E	; 0x80021e <LS_Iterator.1694+0x1>
+    134e:	01 96       	adiw	r24, 0x01	; 1
+    1350:	90 93 1e 02 	sts	0x021E, r25	; 0x80021e <LS_Iterator.1694+0x1>
+    1354:	80 93 1d 02 	sts	0x021D, r24	; 0x80021d <LS_Iterator.1694>
+    1358:	ff 91       	pop	r31
+    135a:	ef 91       	pop	r30
+    135c:	bf 91       	pop	r27
+    135e:	af 91       	pop	r26
+    1360:	9f 91       	pop	r25
+    1362:	8f 91       	pop	r24
+    1364:	7f 91       	pop	r23
+    1366:	6f 91       	pop	r22
+    1368:	5f 91       	pop	r21
+    136a:	4f 91       	pop	r20
+    136c:	3f 91       	pop	r19
+    136e:	2f 91       	pop	r18
+    1370:	0f 90       	pop	r0
+    1372:	0f be       	out	0x3f, r0	; 63
+    1374:	0f 90       	pop	r0
+    1376:	1f 90       	pop	r1
+    1378:	18 95       	reti
+
+0000137a <__vector_6>:
+    137a:	1f 92       	push	r1
+    137c:	0f 92       	push	r0
+    137e:	0f b6       	in	r0, 0x3f	; 63
+    1380:	0f 92       	push	r0
+    1382:	11 24       	eor	r1, r1
+    1384:	0f 90       	pop	r0
+    1386:	0f be       	out	0x3f, r0	; 63
+    1388:	0f 90       	pop	r0
+    138a:	1f 90       	pop	r1
+    138c:	18 95       	reti
+
+0000138e <__vector_7>:
+    138e:	1f 92       	push	r1
+    1390:	0f 92       	push	r0
+    1392:	0f b6       	in	r0, 0x3f	; 63
+    1394:	0f 92       	push	r0
+    1396:	11 24       	eor	r1, r1
+    1398:	2f 93       	push	r18
+    139a:	3f 93       	push	r19
+    139c:	4f 93       	push	r20
+    139e:	5f 93       	push	r21
+    13a0:	6f 93       	push	r22
+    13a2:	7f 93       	push	r23
+    13a4:	8f 93       	push	r24
+    13a6:	9f 93       	push	r25
+    13a8:	af 93       	push	r26
+    13aa:	bf 93       	push	r27
+    13ac:	ef 93       	push	r30
+    13ae:	ff 93       	push	r31
+    13b0:	20 91 29 02 	lds	r18, 0x0229	; 0x800229 <LS_Iterator.1689>
+    13b4:	30 91 2a 02 	lds	r19, 0x022A	; 0x80022a <LS_Iterator.1689+0x1>
+    13b8:	80 91 36 02 	lds	r24, 0x0236	; 0x800236 <G_u16CtcCountsCompA>
+    13bc:	90 91 37 02 	lds	r25, 0x0237	; 0x800237 <G_u16CtcCountsCompA+0x1>
+    13c0:	28 17       	cp	r18, r24
+    13c2:	39 07       	cpc	r19, r25
+    13c4:	59 f4       	brne	.+22     	; 0x13dc <__vector_7+0x4e>
+    13c6:	e0 91 2d 02 	lds	r30, 0x022D	; 0x80022d <GlobalCtcPtrFuncCompA>
+    13ca:	f0 91 2e 02 	lds	r31, 0x022E	; 0x80022e <GlobalCtcPtrFuncCompA+0x1>
+    13ce:	30 97       	sbiw	r30, 0x00	; 0
+    13d0:	29 f0       	breq	.+10     	; 0x13dc <__vector_7+0x4e>
+    13d2:	09 95       	icall
+    13d4:	10 92 2a 02 	sts	0x022A, r1	; 0x80022a <LS_Iterator.1689+0x1>
+    13d8:	10 92 29 02 	sts	0x0229, r1	; 0x800229 <LS_Iterator.1689>
+    13dc:	80 91 29 02 	lds	r24, 0x0229	; 0x800229 <LS_Iterator.1689>
+    13e0:	90 91 2a 02 	lds	r25, 0x022A	; 0x80022a <LS_Iterator.1689+0x1>
+    13e4:	01 96       	adiw	r24, 0x01	; 1
+    13e6:	90 93 2a 02 	sts	0x022A, r25	; 0x80022a <LS_Iterator.1689+0x1>
+    13ea:	80 93 29 02 	sts	0x0229, r24	; 0x800229 <LS_Iterator.1689>
+    13ee:	ff 91       	pop	r31
+    13f0:	ef 91       	pop	r30
+    13f2:	bf 91       	pop	r27
+    13f4:	af 91       	pop	r26
+    13f6:	9f 91       	pop	r25
+    13f8:	8f 91       	pop	r24
+    13fa:	7f 91       	pop	r23
+    13fc:	6f 91       	pop	r22
+    13fe:	5f 91       	pop	r21
+    1400:	4f 91       	pop	r20
+    1402:	3f 91       	pop	r19
+    1404:	2f 91       	pop	r18
+    1406:	0f 90       	pop	r0
+    1408:	0f be       	out	0x3f, r0	; 63
+    140a:	0f 90       	pop	r0
+    140c:	1f 90       	pop	r1
+    140e:	18 95       	reti
+
+00001410 <__vector_8>:
+    1410:	1f 92       	push	r1
+    1412:	0f 92       	push	r0
+    1414:	0f b6       	in	r0, 0x3f	; 63
+    1416:	0f 92       	push	r0
+    1418:	11 24       	eor	r1, r1
+    141a:	2f 93       	push	r18
+    141c:	3f 93       	push	r19
+    141e:	4f 93       	push	r20
+    1420:	5f 93       	push	r21
+    1422:	6f 93       	push	r22
+    1424:	7f 93       	push	r23
+    1426:	8f 93       	push	r24
+    1428:	9f 93       	push	r25
+    142a:	af 93       	push	r26
+    142c:	bf 93       	push	r27
+    142e:	ef 93       	push	r30
+    1430:	ff 93       	push	r31
+    1432:	20 91 27 02 	lds	r18, 0x0227	; 0x800227 <LS_Iterator.1695>
+    1436:	30 91 28 02 	lds	r19, 0x0228	; 0x800228 <LS_Iterator.1695+0x1>
+    143a:	80 91 38 02 	lds	r24, 0x0238	; 0x800238 <G_u16CtcCountsCompB>
+    143e:	90 91 39 02 	lds	r25, 0x0239	; 0x800239 <G_u16CtcCountsCompB+0x1>
+    1442:	28 17       	cp	r18, r24
+    1444:	39 07       	cpc	r19, r25
+    1446:	59 f4       	brne	.+22     	; 0x145e <__vector_8+0x4e>
+    1448:	e0 91 2b 02 	lds	r30, 0x022B	; 0x80022b <GlobalCtcPtrFuncCompB>
+    144c:	f0 91 2c 02 	lds	r31, 0x022C	; 0x80022c <GlobalCtcPtrFuncCompB+0x1>
+    1450:	30 97       	sbiw	r30, 0x00	; 0
+    1452:	29 f0       	breq	.+10     	; 0x145e <__vector_8+0x4e>
+    1454:	09 95       	icall
+    1456:	10 92 28 02 	sts	0x0228, r1	; 0x800228 <LS_Iterator.1695+0x1>
+    145a:	10 92 27 02 	sts	0x0227, r1	; 0x800227 <LS_Iterator.1695>
+    145e:	80 91 27 02 	lds	r24, 0x0227	; 0x800227 <LS_Iterator.1695>
+    1462:	90 91 28 02 	lds	r25, 0x0228	; 0x800228 <LS_Iterator.1695+0x1>
+    1466:	01 96       	adiw	r24, 0x01	; 1
+    1468:	90 93 28 02 	sts	0x0228, r25	; 0x800228 <LS_Iterator.1695+0x1>
+    146c:	80 93 27 02 	sts	0x0227, r24	; 0x800227 <LS_Iterator.1695>
+    1470:	ff 91       	pop	r31
+    1472:	ef 91       	pop	r30
+    1474:	bf 91       	pop	r27
+    1476:	af 91       	pop	r26
+    1478:	9f 91       	pop	r25
+    147a:	8f 91       	pop	r24
+    147c:	7f 91       	pop	r23
+    147e:	6f 91       	pop	r22
+    1480:	5f 91       	pop	r21
+    1482:	4f 91       	pop	r20
+    1484:	3f 91       	pop	r19
+    1486:	2f 91       	pop	r18
+    1488:	0f 90       	pop	r0
+    148a:	0f be       	out	0x3f, r0	; 63
+    148c:	0f 90       	pop	r0
+    148e:	1f 90       	pop	r1
+    1490:	18 95       	reti
+
+00001492 <__vector_9>:
+    1492:	1f 92       	push	r1
+    1494:	0f 92       	push	r0
+    1496:	0f b6       	in	r0, 0x3f	; 63
+    1498:	0f 92       	push	r0
+    149a:	11 24       	eor	r1, r1
+    149c:	2f 93       	push	r18
+    149e:	3f 93       	push	r19
+    14a0:	4f 93       	push	r20
+    14a2:	5f 93       	push	r21
+    14a4:	6f 93       	push	r22
+    14a6:	7f 93       	push	r23
+    14a8:	8f 93       	push	r24
+    14aa:	9f 93       	push	r25
+    14ac:	af 93       	push	r26
+    14ae:	bf 93       	push	r27
+    14b0:	ef 93       	push	r30
+    14b2:	ff 93       	push	r31
+    14b4:	20 91 25 02 	lds	r18, 0x0225	; 0x800225 <LS_Iterator.1701>
+    14b8:	30 91 26 02 	lds	r19, 0x0226	; 0x800226 <LS_Iterator.1701+0x1>
+    14bc:	80 91 3a 02 	lds	r24, 0x023A	; 0x80023a <G_u16OvfCountsTimer1>
+    14c0:	90 91 3b 02 	lds	r25, 0x023B	; 0x80023b <G_u16OvfCountsTimer1+0x1>
+    14c4:	28 17       	cp	r18, r24
+    14c6:	39 07       	cpc	r19, r25
+    14c8:	59 f4       	brne	.+22     	; 0x14e0 <__vector_9+0x4e>
+    14ca:	e0 91 2f 02 	lds	r30, 0x022F	; 0x80022f <GlobalOvPtrFuncTimer1>
+    14ce:	f0 91 30 02 	lds	r31, 0x0230	; 0x800230 <GlobalOvPtrFuncTimer1+0x1>
+    14d2:	30 97       	sbiw	r30, 0x00	; 0
+    14d4:	29 f0       	breq	.+10     	; 0x14e0 <__vector_9+0x4e>
+    14d6:	09 95       	icall
+    14d8:	10 92 26 02 	sts	0x0226, r1	; 0x800226 <LS_Iterator.1701+0x1>
+    14dc:	10 92 25 02 	sts	0x0225, r1	; 0x800225 <LS_Iterator.1701>
+    14e0:	80 91 25 02 	lds	r24, 0x0225	; 0x800225 <LS_Iterator.1701>
+    14e4:	90 91 26 02 	lds	r25, 0x0226	; 0x800226 <LS_Iterator.1701+0x1>
+    14e8:	01 96       	adiw	r24, 0x01	; 1
+    14ea:	90 93 26 02 	sts	0x0226, r25	; 0x800226 <LS_Iterator.1701+0x1>
+    14ee:	80 93 25 02 	sts	0x0225, r24	; 0x800225 <LS_Iterator.1701>
+    14f2:	ff 91       	pop	r31
+    14f4:	ef 91       	pop	r30
+    14f6:	bf 91       	pop	r27
+    14f8:	af 91       	pop	r26
+    14fa:	9f 91       	pop	r25
+    14fc:	8f 91       	pop	r24
+    14fe:	7f 91       	pop	r23
+    1500:	6f 91       	pop	r22
+    1502:	5f 91       	pop	r21
+    1504:	4f 91       	pop	r20
+    1506:	3f 91       	pop	r19
+    1508:	2f 91       	pop	r18
+    150a:	0f 90       	pop	r0
+    150c:	0f be       	out	0x3f, r0	; 63
+    150e:	0f 90       	pop	r0
+    1510:	1f 90       	pop	r1
+    1512:	18 95       	reti
+
+00001514 <TWI_voidMasterInit>:
+    1514:	88 23       	and	r24, r24
+    1516:	11 f0       	breq	.+4      	; 0x151c <TWI_voidMasterInit+0x8>
+    1518:	88 0f       	add	r24, r24
+    151a:	82 b9       	out	0x02, r24	; 2
+    151c:	81 b1       	in	r24, 0x01	; 1
+    151e:	8e 7f       	andi	r24, 0xFE	; 254
+    1520:	81 b9       	out	0x01, r24	; 1
+    1522:	81 b1       	in	r24, 0x01	; 1
+    1524:	8d 7f       	andi	r24, 0xFD	; 253
+    1526:	81 b9       	out	0x01, r24	; 1
+    1528:	82 e0       	ldi	r24, 0x02	; 2
+    152a:	80 b9       	out	0x00, r24	; 0
+    152c:	08 95       	ret
+
+0000152e <TWI_SendStartCond>:
+    152e:	84 ea       	ldi	r24, 0xA4	; 164
+    1530:	86 bf       	out	0x36, r24	; 54
+    1532:	06 b6       	in	r0, 0x36	; 54
+    1534:	07 fe       	sbrs	r0, 7
+    1536:	fd cf       	rjmp	.-6      	; 0x1532 <TWI_SendStartCond+0x4>
+    1538:	81 b1       	in	r24, 0x01	; 1
+    153a:	88 7f       	andi	r24, 0xF8	; 248
+    153c:	88 30       	cpi	r24, 0x08	; 8
+    153e:	11 f4       	brne	.+4      	; 0x1544 <TWI_SendStartCond+0x16>
+    1540:	80 e0       	ldi	r24, 0x00	; 0
+    1542:	08 95       	ret
+    1544:	81 e0       	ldi	r24, 0x01	; 1
+    1546:	08 95       	ret
+
+00001548 <TWI_SendRepeatedStartCond>:
+    1548:	84 ea       	ldi	r24, 0xA4	; 164
+    154a:	86 bf       	out	0x36, r24	; 54
+    154c:	06 b6       	in	r0, 0x36	; 54
+    154e:	07 fe       	sbrs	r0, 7
+    1550:	fd cf       	rjmp	.-6      	; 0x154c <TWI_SendRepeatedStartCond+0x4>
+    1552:	81 b1       	in	r24, 0x01	; 1
+    1554:	88 7f       	andi	r24, 0xF8	; 248
+    1556:	80 31       	cpi	r24, 0x10	; 16
+    1558:	11 f4       	brne	.+4      	; 0x155e <TWI_SendRepeatedStartCond+0x16>
+    155a:	80 e0       	ldi	r24, 0x00	; 0
+    155c:	08 95       	ret
+    155e:	82 e0       	ldi	r24, 0x02	; 2
+    1560:	08 95       	ret
+
+00001562 <TWI_SendSlaveAddressWithWrite>:
+    1562:	88 0f       	add	r24, r24
+    1564:	83 b9       	out	0x03, r24	; 3
+    1566:	84 ec       	ldi	r24, 0xC4	; 196
+    1568:	86 bf       	out	0x36, r24	; 54
+    156a:	06 b6       	in	r0, 0x36	; 54
+    156c:	07 fe       	sbrs	r0, 7
+    156e:	fd cf       	rjmp	.-6      	; 0x156a <TWI_SendSlaveAddressWithWrite+0x8>
+    1570:	81 b1       	in	r24, 0x01	; 1
+    1572:	88 7f       	andi	r24, 0xF8	; 248
+    1574:	88 31       	cpi	r24, 0x18	; 24
+    1576:	11 f4       	brne	.+4      	; 0x157c <TWI_SendSlaveAddressWithWrite+0x1a>
+    1578:	80 e0       	ldi	r24, 0x00	; 0
+    157a:	08 95       	ret
+    157c:	83 e0       	ldi	r24, 0x03	; 3
+    157e:	08 95       	ret
+
+00001580 <TWI_SendSlaveAddressWithRead>:
+    1580:	88 0f       	add	r24, r24
+    1582:	81 60       	ori	r24, 0x01	; 1
+    1584:	83 b9       	out	0x03, r24	; 3
+    1586:	84 ec       	ldi	r24, 0xC4	; 196
+    1588:	86 bf       	out	0x36, r24	; 54
+    158a:	06 b6       	in	r0, 0x36	; 54
+    158c:	07 fe       	sbrs	r0, 7
+    158e:	fd cf       	rjmp	.-6      	; 0x158a <TWI_SendSlaveAddressWithRead+0xa>
+    1590:	81 b1       	in	r24, 0x01	; 1
+    1592:	88 7f       	andi	r24, 0xF8	; 248
+    1594:	80 34       	cpi	r24, 0x40	; 64
+    1596:	11 f4       	brne	.+4      	; 0x159c <TWI_SendSlaveAddressWithRead+0x1c>
+    1598:	80 e0       	ldi	r24, 0x00	; 0
+    159a:	08 95       	ret
+    159c:	84 e0       	ldi	r24, 0x04	; 4
+    159e:	08 95       	ret
+
+000015a0 <TWI_MasterSendDataWithAck>:
+    15a0:	83 b9       	out	0x03, r24	; 3
+    15a2:	84 ec       	ldi	r24, 0xC4	; 196
+    15a4:	86 bf       	out	0x36, r24	; 54
+    15a6:	06 b6       	in	r0, 0x36	; 54
+    15a8:	07 fe       	sbrs	r0, 7
+    15aa:	fd cf       	rjmp	.-6      	; 0x15a6 <TWI_MasterSendDataWithAck+0x6>
+    15ac:	81 b1       	in	r24, 0x01	; 1
+    15ae:	88 7f       	andi	r24, 0xF8	; 248
+    15b0:	88 32       	cpi	r24, 0x28	; 40
+    15b2:	11 f4       	brne	.+4      	; 0x15b8 <TWI_MasterSendDataWithAck+0x18>
+    15b4:	80 e0       	ldi	r24, 0x00	; 0
+    15b6:	08 95       	ret
+    15b8:	85 e0       	ldi	r24, 0x05	; 5
+    15ba:	08 95       	ret
+
+000015bc <TWI_MasterReceiveDataWithNack>:
+    15bc:	fc 01       	movw	r30, r24
+    15be:	84 e8       	ldi	r24, 0x84	; 132
+    15c0:	86 bf       	out	0x36, r24	; 54
+    15c2:	06 b6       	in	r0, 0x36	; 54
+    15c4:	07 fe       	sbrs	r0, 7
+    15c6:	fd cf       	rjmp	.-6      	; 0x15c2 <TWI_MasterReceiveDataWithNack+0x6>
+    15c8:	91 b1       	in	r25, 0x01	; 1
+    15ca:	98 7f       	andi	r25, 0xF8	; 248
+    15cc:	98 35       	cpi	r25, 0x58	; 88
+    15ce:	11 f4       	brne	.+4      	; 0x15d4 <TWI_MasterReceiveDataWithNack+0x18>
+    15d0:	80 e0       	ldi	r24, 0x00	; 0
+    15d2:	01 c0       	rjmp	.+2      	; 0x15d6 <TWI_MasterReceiveDataWithNack+0x1a>
+    15d4:	88 e0       	ldi	r24, 0x08	; 8
+    15d6:	93 b1       	in	r25, 0x03	; 3
+    15d8:	90 83       	st	Z, r25
+    15da:	08 95       	ret
+
+000015dc <TWI_SendStopCond>:
+    15dc:	84 e9       	ldi	r24, 0x94	; 148
+    15de:	86 bf       	out	0x36, r24	; 54
+    15e0:	08 95       	ret
+
+000015e2 <TWI_voidStop>:
+    15e2:	16 be       	out	0x36, r1	; 54
+    15e4:	08 95       	ret
+
+000015e6 <__divmodsi4>:
+    15e6:	05 2e       	mov	r0, r21
+    15e8:	97 fb       	bst	r25, 7
+    15ea:	1e f4       	brtc	.+6      	; 0x15f2 <__divmodsi4+0xc>
+    15ec:	00 94       	com	r0
+    15ee:	0e 94 0a 0b 	call	0x1614	; 0x1614 <__negsi2>
+    15f2:	57 fd       	sbrc	r21, 7
+    15f4:	07 d0       	rcall	.+14     	; 0x1604 <__divmodsi4_neg2>
+    15f6:	0e 94 12 0b 	call	0x1624	; 0x1624 <__udivmodsi4>
+    15fa:	07 fc       	sbrc	r0, 7
+    15fc:	03 d0       	rcall	.+6      	; 0x1604 <__divmodsi4_neg2>
+    15fe:	4e f4       	brtc	.+18     	; 0x1612 <__divmodsi4_exit>
+    1600:	0c 94 0a 0b 	jmp	0x1614	; 0x1614 <__negsi2>
+
+00001604 <__divmodsi4_neg2>:
+    1604:	50 95       	com	r21
+    1606:	40 95       	com	r20
+    1608:	30 95       	com	r19
+    160a:	21 95       	neg	r18
+    160c:	3f 4f       	sbci	r19, 0xFF	; 255
+    160e:	4f 4f       	sbci	r20, 0xFF	; 255
+    1610:	5f 4f       	sbci	r21, 0xFF	; 255
+
+00001612 <__divmodsi4_exit>:
+    1612:	08 95       	ret
+
+00001614 <__negsi2>:
+    1614:	90 95       	com	r25
+    1616:	80 95       	com	r24
+    1618:	70 95       	com	r23
+    161a:	61 95       	neg	r22
+    161c:	7f 4f       	sbci	r23, 0xFF	; 255
+    161e:	8f 4f       	sbci	r24, 0xFF	; 255
+    1620:	9f 4f       	sbci	r25, 0xFF	; 255
+    1622:	08 95       	ret
+
+00001624 <__udivmodsi4>:
+    1624:	a1 e2       	ldi	r26, 0x21	; 33
+    1626:	1a 2e       	mov	r1, r26
+    1628:	aa 1b       	sub	r26, r26
+    162a:	bb 1b       	sub	r27, r27
+    162c:	fd 01       	movw	r30, r26
+    162e:	0d c0       	rjmp	.+26     	; 0x164a <__udivmodsi4_ep>
+
+00001630 <__udivmodsi4_loop>:
+    1630:	aa 1f       	adc	r26, r26
+    1632:	bb 1f       	adc	r27, r27
+    1634:	ee 1f       	adc	r30, r30
+    1636:	ff 1f       	adc	r31, r31
+    1638:	a2 17       	cp	r26, r18
+    163a:	b3 07       	cpc	r27, r19
+    163c:	e4 07       	cpc	r30, r20
+    163e:	f5 07       	cpc	r31, r21
+    1640:	20 f0       	brcs	.+8      	; 0x164a <__udivmodsi4_ep>
+    1642:	a2 1b       	sub	r26, r18
+    1644:	b3 0b       	sbc	r27, r19
+    1646:	e4 0b       	sbc	r30, r20
+    1648:	f5 0b       	sbc	r31, r21
+
+0000164a <__udivmodsi4_ep>:
+    164a:	66 1f       	adc	r22, r22
+    164c:	77 1f       	adc	r23, r23
+    164e:	88 1f       	adc	r24, r24
+    1650:	99 1f       	adc	r25, r25
+    1652:	1a 94       	dec	r1
+    1654:	69 f7       	brne	.-38     	; 0x1630 <__udivmodsi4_loop>
+    1656:	60 95       	com	r22
+    1658:	70 95       	com	r23
+    165a:	80 95       	com	r24
+    165c:	90 95       	com	r25
+    165e:	9b 01       	movw	r18, r22
+    1660:	ac 01       	movw	r20, r24
+    1662:	bd 01       	movw	r22, r26
+    1664:	cf 01       	movw	r24, r30
+    1666:	08 95       	ret
+
+00001668 <_exit>:
+    1668:	f8 94       	cli
+
+0000166a <__stop_program>:
+    166a:	ff cf       	rjmp	.-2      	; 0x166a <__stop_program>
