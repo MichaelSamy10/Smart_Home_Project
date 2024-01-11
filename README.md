@@ -11,7 +11,7 @@ This project involves a simulation for a smart home using ATmega32 microcontroll
 * Leds
 
  ## Hardware Connection
-![Hardware Connection](https://github.com/MichaelSamy10/Smart_Home/assets/101044616/23813aab-14ee-4353-b2ce-af45e57685dd)
+![Hardware Component](https://github.com/MichaelSamy10/Smart_Home/assets/101044616/f29e7ac6-7c52-4ff9-8644-48f62a4c5633)
 
 
 
